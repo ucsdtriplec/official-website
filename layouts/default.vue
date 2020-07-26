@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-app-bar fixed app>
       <v-img class="mx-2" src="/logo.png" max-height="40" max-width="40" contain />
       <v-toolbar-title nuxt to="/">
@@ -8,12 +8,13 @@
         </nuxt-link>
       </v-toolbar-title>
       <v-spacer />
+      <!-- App bar items -->
       <v-toolbar-items>
         <HelloCarousel />
-        <v-btn text nuxt to="workshop" class="hidden-sm-and-down">
+        <v-btn text nuxt to="about" class="hidden-sm-and-down">
           About
         </v-btn>
-        <v-btn text nuxt to="finance" class="hidden-sm-and-down">
+        <v-btn text nuxt to="events" class="hidden-sm-and-down">
           Events
         </v-btn>
         <v-btn text nuxt to="photos" class="hidden-sm-and-down">
@@ -30,7 +31,7 @@
               v-bind="attrs"
               v-on="on"
             >
-              Dropdown
+              Projects
               <v-icon right>
                 mdi-menu-down
               </v-icon>
@@ -65,7 +66,6 @@
       </v-container>
     </v-main>
     <v-footer
-      dark
       padless
     >
       <v-card
@@ -83,7 +83,6 @@
             :key="idx"
             class="mx-4"
             :href="item.link"
-            dark
             icon
           >
             <v-icon size="24px">
@@ -92,7 +91,7 @@
           </v-btn>
         </v-card-title>
 
-        <v-card-text class="py-2 white--text text-center">
+        <v-card-text class="py-2 text-center">
           &copy; {{ new Date().getFullYear() }} — <strong>UCSD Triple C</strong>
         </v-card-text>
       </v-card>
