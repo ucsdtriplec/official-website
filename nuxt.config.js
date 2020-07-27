@@ -16,7 +16,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    titleTemplate: '%s - ' + 'Triple C',
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -31,7 +31,8 @@ export default {
   ** Global CSS
   */
   css: [
-    '~/css/main.scss'
+    '~/css/main.scss',
+    '~/css/markdown.scss'
   ],
   /*
   ** Plugins to load before mounting the App

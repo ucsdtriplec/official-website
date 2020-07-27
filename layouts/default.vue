@@ -14,12 +14,12 @@
         <v-btn text nuxt to="about" class="hidden-sm-and-down">
           About
         </v-btn>
-        <v-btn text nuxt to="events" class="hidden-sm-and-down">
+        <!-- <v-btn text nuxt to="events" class="hidden-sm-and-down">
           Events
         </v-btn>
         <v-btn text nuxt to="photos" class="hidden-sm-and-down">
           Photos
-        </v-btn>
+        </v-btn> -->
         <v-btn text nuxt to="members" class="hidden-sm-and-down">
           Members
         </v-btn>
@@ -40,10 +40,10 @@
 
           <v-list>
             <v-list-item
-              v-for="(item, index) in projectsItems"
+              v-for="(item, index) in $store.state.projectList"
               :key="index"
               nuxt
-              :to="item.link"
+              :to="item.path"
             >
               <v-list-item-title>
                 {{ item.title }}
@@ -75,9 +75,7 @@
       >
         <v-card-title>
           <strong class="subheading">Get connected with us on social networks!</strong>
-
           <v-spacer />
-
           <v-btn
             v-for="(item, idx) in socialMediaIcons"
             :key="idx"
@@ -109,13 +107,6 @@ export default {
     return {
       fixed: false,
       title: 'Triple C',
-      projectsItems: [
-        { title: 'Podcast Pro', link: '/projects/podcast-pro' },
-        { title: 'IntelliBear', link: '/projects/intellibear' },
-        { title: 'Official Website', link: '/projects/official-website' },
-        { title: 'Courum', link: '/projects/courum' },
-        { title: 'Unsea', link: '/projects/unsea' }
-      ],
       socialMediaIcons: [
         { icon: 'mdi-facebook', link: 'https://www.facebook.com/ucsdtriplec' },
         { icon: 'mdi-github', link: 'https://github.com/ucsdtriplec' },
