@@ -1,5 +1,57 @@
 <template>
-  <v-div>
+  <div>
+    <v-overlay :value="subscriptionOverlay">
+      <v-card
+        ref="form"
+        class="mx-auto"
+        color="#26c6da"
+        dark
+        max-width="400"
+      >
+        <v-card-title>
+          <v-icon
+            large
+            left
+          >
+            mdi-email
+          </v-icon>
+          <span class="title font-weight-light">Follow Us!</span>
+          <v-spacer />
+          <v-btn
+            icon
+            class="mx-auto"
+            @click="subscriptionOverlay = false"
+          >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-card-title>
+        <v-card-text class="pb-0">
+          <v-card-text class="headline font-weight-bold">
+            Subscribe to our weekly articles, be in touch with the team, and get involved in our community oppurtunities!
+          </v-card-text>
+          <v-text-field
+            ref="name"
+            v-model="subscriptionEmail"
+            label="Email"
+            placeholder="triplec@gmail.com"
+            filled
+          />
+        </v-card-text>
+        <v-card-actions class="mx-2">
+          <v-btn
+            block
+            depressed
+            :disabled="!subscriptionEmail"
+            color="red lighten-1"
+            class="mb-2 lighten"
+            @click="submit"
+          >
+            Subscribe
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-overlay>
+
     <section>
       <v-parallax
         id="homepage-pic"
@@ -177,7 +229,7 @@
         </v-flex>
       </v-layout>
     </section>
-  </v-div>
+  </div>
 </template>
 
 <script>
@@ -208,7 +260,14 @@ export default {
       { src: '/activity9.jpeg' }
     ],
     loading: false,
-    loader: null
+    loader: null,
+    subscriptionOverlay: false,
+    subscriptionEmail: '',
+    emailRules: [
+      v => !!v || 'E-mail is required',
+      v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+    ],
+    validEmail: true
   }),
   watch: {
     loader () {
@@ -221,14 +280,25 @@ export default {
     }
   },
   mounted () {
-    this.onResize()
-    // refresh the page (though not a decent approach )
-    window.scrollTo(0, 10)
-    window.scrollTo(0, 0)
+    this.subscriptionOverlay = true // debug
+    // set subscriptionOverlay flag if the page is openned for on first time
+    if (!window.localStorage.getItem('visited')) {
+      this.subscriptionOverlay = true
+      window.localStorage.setItem('visited', 'true')
+    }
   },
   methods: {
     onResize () {
       this.windowSize = { x: window.innerWidth, y: window.innerHeight }
+    },
+    validate () {
+      this.$refs.form.validate()
+    },
+    submit () {}
+  },
+  head () {
+    return {
+      title: 'Home'
     }
   }
 }
