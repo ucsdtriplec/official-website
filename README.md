@@ -73,7 +73,7 @@ $ curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/
  
 1. Clone the repo
 ```sh
-$ git clone https://github.com/github_username/repo.git
+$ git clone https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt.git
 ```
 2. Install NPM packages
 ```bash
@@ -98,7 +98,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/github_username/repo/issues) for a list of proposed features (and known issues).
+See the [open issues](https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt/issues) for a list of proposed features (and known issues).
 
 
 
@@ -118,7 +118,7 @@ Contributions are what make the open source community such an amazing place to b
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
 
-Project Link: [https://github.com/github_username/repo](https://github.com/github_username/repo)
+Project Link: [https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt](https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt)
 
 
 
