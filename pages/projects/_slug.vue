@@ -6,15 +6,22 @@
     <div class="grey--text subheading mx-2">
       {{ article.description }}
     </div>
-    <v-container class="px-0">
+    <v-container v-if="article.team" class="px-0">
       <v-row no-gutters>
         <v-col
-          v-for="n in 2"
-          :key="n"
+          v-for="(member, idx) in article.team"
+          :key="idx"
           cols="12"
           sm="4"
         >
-          <MemberCard name="Ron Graham" position="Tech Lead" description="architecture / back-end / DB / testing" avatar-url="https://i1.hdslb.com/bfs/face/76af262e214b1213bde5cc76a6be471e394da328.jpg_64x64.jpg" class="align-center ma-2" />
+          <MemberCard
+            :name="member.name"
+            :position="member.position"
+            :description="member.description"
+            :avatar-url="member.avatarUrl"
+            :links="member.links"
+            class="align-center ma-2"
+          />
         </v-col>
       </v-row>
     </v-container>

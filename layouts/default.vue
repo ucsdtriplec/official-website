@@ -11,7 +11,7 @@
       <!-- App bar items -->
       <v-toolbar-items>
         <HelloCarousel />
-        <v-btn text nuxt to="about" class="hidden-sm-and-down">
+        <v-btn text nuxt to="/about" class="hidden-sm-and-down">
           About
         </v-btn>
         <!-- <v-btn text nuxt to="events" class="hidden-sm-and-down">
@@ -20,7 +20,7 @@
         <v-btn text nuxt to="photos" class="hidden-sm-and-down">
           Photos
         </v-btn> -->
-        <v-btn text nuxt to="members" class="hidden-sm-and-down">
+        <v-btn text nuxt to="/members" class="hidden-sm-and-down">
           Members
         </v-btn>
         <v-menu v-ripple="false" offset-y nudge-bottom="10" transition="slide-y-transition">

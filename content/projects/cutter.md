@@ -1,6 +1,43 @@
 ---
 title: Cutter
-description: 'Free and Open Source Reverse Engineering Platform powered by radare2'
+description: A Qt and C++ GUI powered by radare2, created by reverse engineers for reverse engineers.
+team:
+  -
+    name: Florian Märkl
+    position: Tech Lead
+    description: Full Heap Developer
+    avatarUrl: https://avatars1.githubusercontent.com/u/1460997?s=460&u=b713d00a36fb060cd74f80716b5f18fb2407cc44&v=4
+    links:
+      - 
+        icon: github
+        url: https://github.com/thestr4ng3r
+      -
+        icon: link
+        url: https://metallic.software
+  -
+    name: xarkes
+    position: Developer
+    description: Open source contributor
+    avatarUrl: https://avatars2.githubusercontent.com/u/10772605?s=460&u=8858eeb7d62dfae2d4aa4f00b7b170a37a9bdcb7&v=4
+    links:
+      - 
+        icon: github
+        url: https://github.com/xarkes
+      -
+        icon: link
+        url: https://xarkes.com/
+  -
+    name: Hugo Teso
+    position: Developer
+    description: Noting to say
+    avatarUrl: https://avatars3.githubusercontent.com/u/4849824?s=460&u=d50acce4270f7457bf8aa1a227a970353592e06a&v=4
+    links:
+      - 
+        icon: github
+        url: https://github.com/hteso
+      -
+        icon: email
+        url: mailto:hugo.teso@gmail.com
 ---
 
 <img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="Cutter logo" src="https://raw.githubusercontent.com/radareorg/cutter/master/src/img/cutter.svg?sanitize=true">
@@ -11,8 +48,9 @@ Cutter is a free and open-source reverse engineering framework powered by [radar
 [![Build status](https://ci.appveyor.com/api/projects/status/s9rkx1dn3uy4bfdx/branch/master?svg=true)](https://ci.appveyor.com/project/radareorg/cutter/branch/master)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/radareorg/cutter.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/radareorg/cutter/alerts/)
 
-
 ## Learn more at [https://cutter.re](https://cutter.re).
+
+![photo](https://cutter.re/assets/images/cutter-screenshot.png)
 
 ## Downloading a release
 
