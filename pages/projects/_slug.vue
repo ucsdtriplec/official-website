@@ -12,16 +12,24 @@
           v-for="(member, idx) in article.team"
           :key="idx"
           cols="12"
-          sm="4"
+          xs="12"
+          sm="6"
+          md="4"
         >
-          <MemberCard
-            :name="member.name"
-            :position="member.position"
-            :description="member.description"
-            :avatar-url="member.avatarUrl"
-            :links="member.links"
-            class="align-center ma-2"
-          />
+          <v-row
+            align="center"
+            justify="center"
+            class="ma-2"
+          >
+            <MemberCard
+              :name="member.name"
+              :position="member.position"
+              :description="member.description"
+              :avatar-url="member.avatarUrl"
+              :links="member.links"
+              class="align-center"
+            />
+          </v-row>
         </v-col>
       </v-row>
     </v-container>

@@ -2,38 +2,47 @@
   <!-- TODO: implement this hover effect -->
   <v-hover v-slot:default="{ hover }">
     <v-card
-      max-width="344"
+      width="344"
       outlined
       class="transition-swing"
     >
-      <v-fade-transition v-if="links.length">
+      <v-fade-transition v-if="description.length | links!={}">
         <v-overlay
           v-if="hover"
           absolute
           color="blue"
           style="backdrop-filter: blur(2px);"
         >
-          <v-btn
-            v-for="(item, idx) in links"
-            :key="idx"
-            :href="item.url"
-            icon
-          >
-            <v-icon>
-              {{ "mdi-" + item.icon }}
-            </v-icon>
-          </v-btn>
+          <v-list-item two-line>
+            <v-list-item-content>
+              <p class="text-subtitle-2 text-center">
+                {{ description }}
+              </p>
+              <div class="text-center">
+                <v-btn
+                  v-for="(url, iconName) in links"
+                  :key="iconName"
+                  :href="url"
+                  :disabled="!url"
+                  icon
+                >
+                  <v-icon>
+                    {{ "mdi-" + iconName }}
+                  </v-icon>
+                </v-btn>
+              </div>
+            </v-list-item-content>
+          </v-list-item>
         </v-overlay>
       </v-fade-transition>
-      <v-list-item three-line>
+      <v-list-item two-line>
         <v-list-item-content>
-          <div class="overline mb-4">
+          <div class="overline">
             {{ position }}
           </div>
-          <v-list-item-title class="headline mb-1">
+          <p class="headline mb-1 text-end">
             {{ name }}
-          </v-list-item-title>
-          <v-list-item-subtitle> {{ description }} </v-list-item-subtitle>
+          </p>
         </v-list-item-content>
 
         <v-list-item-avatar
@@ -70,8 +79,8 @@ export default {
       required: true
     },
     links: {
-      type: Array,
-      default: () => []
+      type: Object,
+      default: () => {}
     }
   },
   data () {

@@ -217,3 +217,7 @@
     text-align: left;
     font-weight: bold;
   }
+
+  .v-list-item__avatar img{
+    object-fit: cover;
+  }
