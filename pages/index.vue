@@ -7,6 +7,7 @@
         color="#26c6da"
         dark
         max-width="400"
+        :tile="$vuetify.breakpoint.mobile"
       >
         <v-card-title>
           <v-icon
