@@ -9,7 +9,8 @@
       Meet the team
     </h1>
     <div class="grey--text subheading mx-2">
-      They are all in the room where it happens.
+      "They are all in the room where it happens."
+      <!-- from "Hamilton" -->
     </div>
     <v-divider class="ma-2 mb-8" />
     <div v-for="(departmentMembers, departmentName) in team" :key="departmentName">
