@@ -57,7 +57,7 @@
         class="mr-4"
         vertical
       />
-      <v-btn id="nav_contact_button" class="blue" text nuxt to="register">
+      <v-btn id="nav_contact_button" class="blue" text @click="contactNav = true">
         Contact Us
       </v-btn>
     </v-app-bar>
@@ -148,17 +148,17 @@
       >
         <v-card-title>
           <v-layout row wrap align-start>
-            <v-flex xs12 md5 class="text-md-left text-center hidden-sm-and-down">
+            <v-flex xs12 md4 class="text-md-left text-center hidden-sm-and-down">
               <p class="text-h6 mx-8">
                 Get connected with us on social networks!
               </p>
             </v-flex>
-            <v-flex xs12 md2 class="text-md-left text-center">
+            <v-flex xs12 md4 class="text-md-left text-center">
               <v-card-text class="py-2 text-center">
-                &copy; {{ new Date().getFullYear() }} — <strong>UCSD Triple C</strong>
+                &copy; {{ new Date().getFullYear() }} — <strong>UCSD Triple C</strong> ▸ <a @click="$vuetify.theme.dark = !$vuetify.theme.dark"> {{ !$vuetify.theme.dark ? 'Dark Mode' : 'Light Mode' }} </a>
               </v-card-text>
             </v-flex>
-            <v-flex xs12 md5 class="text-md-right text-center">
+            <v-flex xs12 md4 class="text-md-right text-center">
               <div class="mx-4">
                 <v-btn
                   v-for="(item, idx) in socialMediaIcons"
@@ -177,6 +177,59 @@
         </v-card-title>
       </v-card>
     </v-footer>
+
+    <v-dialog v-model="contactNav" max-width="400px">
+      <v-card>
+        <v-img
+          src="/contact-cover.jpg"
+          class="white--text align-end mb-6 px-2"
+          gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+          height="200px"
+        >
+          <v-card-title>
+            Contact us
+          </v-card-title>
+          <v-card-subtitle class="text--white">
+            Let's make progress together
+          </v-card-subtitle>
+        </v-img>
+        <v-card-text class="pb-0">
+          <div class="d-flex flex-column">
+            <v-btn class="mb-2 red white--text">
+              <v-icon left>
+                mdi-account-group
+              </v-icon> Join the team
+            </v-btn>
+            <v-btn class="mb-2 green white--text">
+              <v-icon left>
+                mdi-file-document-edit
+              </v-icon> Submit a proposal
+            </v-btn>
+            <v-btn class="mb-6 blue white--text">
+              <v-icon left>
+                mdi-handshake
+              </v-icon> Support us
+            </v-btn>
+          </div>
+          <v-divider />
+        </v-card-text>
+        <v-card-actions>
+          <div class="text-center mx-auto">
+            <v-btn
+              v-for="(item, idx) in socialMediaIcons"
+              :key="idx"
+              class="mx-2"
+              :href="item.link"
+              icon
+            >
+              <v-icon size="24px">
+                {{ item.icon }}
+              </v-icon>
+            </v-btn>
+          </div>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
@@ -196,7 +249,8 @@ export default {
         { icon: 'mdi-linkedin', link: 'https://www.linkedin.com/company/ucsd-chinese-computer-community/' },
         // TODO: Not completed
         { icon: 'mdi-wechat', link: '' }
-      ]
+      ],
+      contactNav: false
     }
   }
 }
