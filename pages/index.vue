@@ -1,12 +1,10 @@
 <template>
   <div>
-    <v-overlay :value="subscriptionOverlay">
+    <v-dialog v-model="subscriptionOverlay" max-width="400">
       <v-card
         ref="form"
-        class="mx-auto"
         color="#26c6da"
         dark
-        max-width="400"
         :tile="$vuetify.breakpoint.mobile"
       >
         <v-card-title>
@@ -19,12 +17,12 @@
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-card-title>
-        <v-card-text class="pb-0">
-          <v-card-text
-            class="headline font-weight-bold"
+        <v-card-text class="pb-0 mt-2 px-4">
+          <p
+            class="headline font-weight-bold px-2"
           >
             Subscribe to our weekly articles, be in touch with the team, and get involved in our community oppurtunities!
-          </v-card-text>
+          </p>
           <v-text-field
             ref="name"
             v-model="subscriptionEmail"
@@ -46,7 +44,7 @@
           </v-btn>
         </v-card-actions>
       </v-card>
-    </v-overlay>
+    </v-dialog>
 
     <section>
       <v-parallax id="homepage-pic" dark src="/homepage_cover_pic.jpg" :height="840" jumbotron>

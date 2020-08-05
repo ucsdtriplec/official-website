@@ -155,7 +155,7 @@
             </v-flex>
             <v-flex xs12 md4 class="text-md-left text-center">
               <v-card-text class="py-2 text-center">
-                &copy; {{ new Date().getFullYear() }} — <strong>UCSD Triple C</strong> ▸ <a @click="$vuetify.theme.dark = !$vuetify.theme.dark"> {{ !$vuetify.theme.dark ? 'Dark Mode' : 'Light Mode' }} </a>
+                &copy; {{ new Date().getFullYear() }} — <strong>UCSD Triple C</strong> ▸ <a @click="$vuetify.theme.dark = !$vuetify.theme.dark"> {{ ! $vuetify.theme.dark ? 'Dark Mode' : 'Light Mode' }} </a>
               </v-card-text>
             </v-flex>
             <v-flex xs12 md4 class="text-md-right text-center">
