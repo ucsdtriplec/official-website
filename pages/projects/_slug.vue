@@ -1,5 +1,5 @@
 <template>
-  <v-card class="markdown-body" max-width="980">
+  <v-card class="markdown-body" max-width="936">
     <h1 class="display-1 ma-2">
       {{ article.title }}
     </h1>
