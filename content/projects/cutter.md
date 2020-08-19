@@ -1,5 +1,5 @@
 ---
-title: Cutter
+title: '[Demo] Cutter'
 description: A Qt and C++ GUI powered by radare2, created by reverse engineers for reverse engineers.
 team:
   -
