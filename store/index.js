@@ -1,10 +1,29 @@
 export const state = () => ({
-  projectList: []
+  projectList: [],
+  snackBar: {
+    isOpen: false,
+    text: '',
+    color: 'success'
+  }
 })
 
 export const mutations = {
   updateProjectList (state, data) {
     state.projectList = data
+  },
+
+  toggleSnackBar (state) {
+    state.snackBar.isOpen = !state.snackBar.isOpen
+  },
+
+  closeSnackBar (state) {
+    state.snackBar.isOpen = false
+  },
+
+  showSnackBar (state, { text, color }) {
+    state.snackBar.text = text
+    state.snackBar.color = color
+    state.snackBar.isOpen = true
   }
 }
 

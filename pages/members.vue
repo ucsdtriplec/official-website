@@ -50,16 +50,21 @@
 
 <script>
 export default {
-  async asyncData ({ $axios }) {
-    const teamData = await $axios.$post('https://new.ucsdtriplec.org:8443/api/members/all')
-    const team = teamData.members.reduce((result, currentValue) => {
-    // If an array already present for key, push it to the array. Else create an array and push the object
-      (result[currentValue.department] = result[currentValue.department] || []).push(
-        currentValue
-      )
-      return result
-    }, {})
-    return { team }
+  async asyncData ({ $axios, store }) {
+    return await $axios.$post('https://new.ucsdtriplec.org:8443/api/members/all')
+      .then((res) => {
+        return res.members.reduce((result, currentValue) => {
+          // If an array already present for key, push it to the array. Else create an array and push the object
+          (result[currentValue.department] = result[currentValue.department] || []).push(
+            currentValue
+          )
+          return result
+        }, {})
+      })
+      .catch((error) => {
+        store.commit('showSnackBar', { text: error.message, color: 'error' })
+        return { team: [] }
+      })
   },
   data () {
     return {
@@ -174,6 +179,9 @@ export default {
       //   }
       // ]
     }
+  },
+  beforeDestroy () {
+    this.$store.commit('toggleSnackBar')
   }
 }
 

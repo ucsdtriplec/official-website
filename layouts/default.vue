@@ -149,7 +149,7 @@
         <v-card-title>
           <v-layout row wrap align-start>
             <v-flex xs12 md4 class="text-md-left text-center hidden-sm-and-down">
-              <p class="text-h6 mx-8">
+              <p class="text-h6 mx-8 my-0">
                 Get connected with us on social networks!
               </p>
             </v-flex>
@@ -230,6 +230,24 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+    <v-snackbar
+      v-model="$store.state.snackBar.isOpen"
+      :color="$store.state.snackBar.color"
+      timeout="-1"
+    >
+      {{ $store.state.snackBar.text }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          text
+          v-bind="attrs"
+          @click="$store.commit('toggleSnackBar')"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-app>
 </template>
 
