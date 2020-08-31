@@ -1,6 +1,8 @@
 // Import Vuetify styling
 @import "~vuetify/src/styles/main.sass";
 
+$font-size-root: 16px !default;
+
 .logo {
   text-decoration: none;
   cursor: pointer;
@@ -214,6 +216,7 @@ mark {
 .v-list-item__avatar img {
   object-fit: cover;
 }
+
 .content-body {
   box-sizing: border-box;
   min-width: 200px;
@@ -222,16 +225,24 @@ mark {
   padding: 45px;
 }
 
-@media (max-width: 1264px) {
-  .content-body {
-    padding: 15px;
-    max-width: 1185px;
-  }
+.section-body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding-right: 45px;
+  padding-left: 45px;
 }
 
 @media (max-width: 1264px) {
   .content-body {
     padding: 15px;
-    max-width: 900px;
+    max-width: 1185px;
+  }
+
+  .section-body {
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 1185px;
   }
 }

@@ -66,8 +66,8 @@
       </v-parallax>
     </section>
 
-    <div class="content-body">
-      <section>
+    <div class="py-5">
+      <section class="section-body">
         <v-layout column wrap class="my-5">
           <v-flex xs12 sm4 class="my-3">
             <div class="text-center">
@@ -94,7 +94,7 @@
                         We work.
                       </div>
                     </v-card-title>
-                    <v-card-text>
+                    <v-card-text class="body-1">
                       We partner with employers to provide students networking and employment opportunities. We host both large and small scale events that provide intimate access to highly competitive and sought after employers.
                       <a
                         href="/workshop"
@@ -115,7 +115,9 @@
                         We code.
                       </div>
                     </v-card-title>
-                    <v-card-text>We are passionate about technology and service. We develop applications that benefit the Carnegie Mellon community at large.</v-card-text>
+                    <v-card-text class="body-1">
+                      We are passionate about technology and service. We develop applications that benefit the Carnegie Mellon community at large.
+                    </v-card-text>
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
@@ -133,7 +135,9 @@
                         We share.
                       </div>
                     </v-card-title>
-                    <v-card-text>ACM regularly organizes a variety of talks ranging from social topics like “How to prepare for an interview” and technical topics from “An introduction to Rasberry Pi”, “Debugging Distributed Systems” to “Crossing Numbers, Humanity and Beauty of Math”.</v-card-text>
+                    <v-card-text class="body-1">
+                      ACM regularly organizes a variety of talks ranging from social topics like “How to prepare for an interview” and technical topics from “An introduction to Rasberry Pi”, “Debugging Distributed Systems” to “Crossing Numbers, Humanity and Beauty of Math”.
+                    </v-card-text>
                   </v-card>
                 </v-flex>
               </v-layout>
@@ -142,7 +146,7 @@
         </v-layout>
       </section>
 
-      <section>
+      <section class="section-body color--red">
         <v-layout column wrap class="my-5">
           <v-flex xs12 sm4 class="my-3">
             <div class="text-center">
@@ -163,7 +167,9 @@
                   <v-card-title class="headline">
                     {{ item.name }}
                   </v-card-title>
-                  <v-card-text>{{ item.info }}</v-card-text>
+                  <v-card-text class="body-1">
+                    {{ item.info }}
+                  </v-card-text>
                 </v-card>
               </v-timeline-item>
             </v-timeline>
@@ -182,7 +188,7 @@
         </v-layout>
       </section>
 
-      <section>
+      <section class="section-body">
         <v-layout column wrap class="my-5">
           <v-flex xs12 sm4 class="my-3">
             <div class="text-center">
