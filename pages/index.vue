@@ -54,12 +54,12 @@
           </v-col>
           <v-col class="text-center" md="6" offset="0">
             <h1 class="text-h3 mb-4 text-left font-weight-bold">
-              Innovation & Collaboration
+              Innovate and Collaborate @ Triple C
             </h1>
             <h4
               class="text-h6 text-left"
             >
-              Providing UC San Diego a technology-driven business incubator with opportunities in professional working environment, strengthen technical skills and seek business growth.
+              A technology-driven business incubator at UC San Diego, we provide a niche fraught of professional spirit, technical collaboration, and mutual support.
             </h4>
           </v-col>
         </v-row>
@@ -165,10 +165,10 @@
                 <span slot="opposite">{{ item.date }}</span>
                 <v-card class="elevation-0 transparent">
                   <v-card-title class="headline">
-                    {{ item.name }}
+                    {{ item.title }}
                   </v-card-title>
                   <v-card-text class="body-1">
-                    {{ item.info }}
+                    <nuxt-content :document="item" />
                   </v-card-text>
                 </v-card>
               </v-timeline-item>
@@ -177,10 +177,8 @@
           <v-flex xs12 class="text-center">
             <v-btn
               class="ma-2"
-              :loading="loading"
-              :disabled="loading"
               outlined
-              @click="loader = 'loading'"
+              @click="loadMore()"
             >
               Load More
             </v-btn>
@@ -193,7 +191,7 @@
           <v-flex xs12 sm4 class="my-3">
             <div class="text-center">
               <h2 class="text-h4 font-weight-medium">
-                Our Album
+                Photo Album
               </h2>
               <span class="subtitle-1">
                 "Light snow covers my secret thoughts,
@@ -219,33 +217,40 @@
 import { Logo } from '~/components/Logo.vue'
 export default {
   components: { Logo },
+  async asyncData ({ $content }) {
+    const timeLineItems = await $content('timeline').sortBy('date').limit(3).fetch()
+    return {
+      timeLineItems
+    }
+  },
   data: () => ({
     windowSize: {
       x: 0,
       y: 0
     },
+    timelineItemCounter: 3,
     // dummy data
     // TODO: collect these data through API call
-    timeLineItems: [
-      {
-        date: '06/03/2019',
-        name: 'Spring Quarter Demo Day',
-        info:
-          "Triple C welcomes everyone to come to our Demo Day on June 3rd. Here, we'll share you with our interesting stories about projects. Here, we'll let you to join projects that interest you. And the most important thing: we'll provide you with DRINKS AND SNACKS. Valued Guest: Professor Thomas Powell, Professor Sicun Gao, Professor Yingjun Cao, Alumni from ServiceNow and AppFolio."
-      },
-      {
-        date: '05/04/2019',
-        name: 'Spring Quarter Team Bonding',
-        info:
-          "Triple C welcomes everyone to come to our Demo Day on June 3rd. Here, we'll share you with our interesting stories about projects. Here, we'll let you to join projects that interest you. And the most important thing: we'll provide you with DRINKS AND SNACKS. Valued Guest: Professor Thomas Powell, Professor Sicun Gao, Professor Yingjun Cao, Alumni from ServiceNow and AppFolio."
-      },
-      {
-        date: '04/09/2019',
-        name: 'Spring Quarter 2019 GBM',
-        info:
-          "On April 4th, Triple C (Chinese Computer Community) had a 'Spring 2019 General Body Meeting' with our incoming staff and our new project contributors. We had 50 students coming for joining our group. By here, we introduced our origination's culture and goals, recruiting talented new staff, showed two of our Website Projects proudly completed by the end of last quarter. We all had a delightful night and finally found where our dream is at together. For further inquiries or if you intend to join our organization, feel free to contact with us via Triple C official email: ucsdtriplec@gmail.com."
-      }
-    ],
+    // timeLineItems: [
+    //   {
+    //     date: '06/03/2019',
+    //     name: 'Spring Quarter Demo Day',
+    //     info:
+    //       "Triple C welcomes everyone to come to our Demo Day on June 3rd. Here, we'll share you with our interesting stories about projects. Here, we'll let you to join projects that interest you. And the most important thing: we'll provide you with DRINKS AND SNACKS. Valued Guest: Professor Thomas Powell, Professor Sicun Gao, Professor Yingjun Cao, Alumni from ServiceNow and AppFolio."
+    //   },
+    //   {
+    //     date: '05/04/2019',
+    //     name: 'Spring Quarter Team Bonding',
+    //     info:
+    //       "Triple C welcomes everyone to come to our Demo Day on June 3rd. Here, we'll share you with our interesting stories about projects. Here, we'll let you to join projects that interest you. And the most important thing: we'll provide you with DRINKS AND SNACKS. Valued Guest: Professor Thomas Powell, Professor Sicun Gao, Professor Yingjun Cao, Alumni from ServiceNow and AppFolio."
+    //   },
+    //   {
+    //     date: '04/09/2019',
+    //     name: 'Spring Quarter 2019 GBM',
+    //     info:
+    //       "On April 4th, Triple C (Chinese Computer Community) had a 'Spring 2019 General Body Meeting' with our incoming staff and our new project contributors. We had 50 students coming for joining our group. By here, we introduced our origination's culture and goals, recruiting talented new staff, showed two of our Website Projects proudly completed by the end of last quarter. We all had a delightful night and finally found where our dream is at together. For further inquiries or if you intend to join our organization, feel free to contact with us via Triple C official email: ucsdtriplec@gmail.com."
+    //   }
+    // ],
     carouselItems: [
       { src: '/activity1.jpeg' },
       { src: '/activity2.jpeg' },
@@ -286,6 +291,11 @@ export default {
     }
   },
   methods: {
+    async loadMore () {
+      const data = await this.$content('timeline').sortBy('date').skip(this.timelineItemCounter).limit(3).fetch()
+      this.timeLineItems = this.timeLineItems.concat(data)
+      this.timelineItemCounter += data.length
+    },
     onResize () {
       this.windowSize = { x: window.innerWidth, y: window.innerHeight }
     },

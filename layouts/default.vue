@@ -235,6 +235,7 @@
       v-model="$store.state.snackBar.isOpen"
       :color="$store.state.snackBar.color"
       timeout="-1"
+      top
     >
       {{ $store.state.snackBar.text }}
 

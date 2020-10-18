@@ -13,7 +13,7 @@
       <!-- from "Hamilton" -->
     </div>
     <v-divider class="ma-2 mb-8" />
-    <div v-for="(departmentMembers, departmentName) in team" :key="departmentName">
+    <div v-for="(departmentMembers, departmentName) in $store.state.memberList" :key="departmentName">
       <h6 class="text-h6 mx-2">
         {{ departmentName }}
       </h6>
@@ -50,21 +50,8 @@
 
 <script>
 export default {
-  async asyncData ({ $axios, store }) {
-    return await $axios.$post('https://new.ucsdtriplec.org:8443/api/members/all')
-      .then((res) => {
-        return res.members.reduce((result, currentValue) => {
-          // If an array already present for key, push it to the array. Else create an array and push the object
-          (result[currentValue.department] = result[currentValue.department] || []).push(
-            currentValue
-          )
-          return result
-        }, {})
-      })
-      .catch((error) => {
-        store.commit('showSnackBar', { text: error.message, color: 'error' })
-        return { team: [] }
-      })
+  async fetch ({ store, params }) {
+    await store.dispatch('SET_MEMBERLIST')
   },
   data () {
     return {
@@ -181,7 +168,7 @@ export default {
     }
   },
   beforeDestroy () {
-    this.$store.commit('toggleSnackBar')
+    this.$store.commit('closeSnackBar')
   }
 }
 

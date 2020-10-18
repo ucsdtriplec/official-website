@@ -1,5 +1,8 @@
+import config from '../config'
+
 export const state = () => ({
   projectList: [],
+  memberList: [],
   snackBar: {
     isOpen: false,
     text: '',
@@ -24,7 +27,18 @@ export const mutations = {
     state.snackBar.text = text
     state.snackBar.color = color
     state.snackBar.isOpen = true
+  },
+
+  setMemberList (state, data) {
+    state.memberList = data.members.reduce((result, currentValue) => {
+      // If an array already present for key, push it to the array. Else create an array and push the object
+      (result[currentValue.department] = result[currentValue.department] || []).push(
+        currentValue
+      )
+      return result
+    }, {})
   }
+
 }
 
 export const actions = {
@@ -36,5 +50,16 @@ export const actions = {
       .sortBy('date', 'asc')
       .fetch()
     commit('updateProjectList', data)
+  },
+
+  async SET_MEMBERLIST ({ commit }) {
+    await this.$axios.$post(`${config.API_PREFIX}/members/all`)
+      .then((res) => {
+        commit('setMemberList', res)
+      })
+      .catch((error) => {
+        commit('showSnackBar', { text: error.message, color: 'error' })
+        return { team: [] }
+      })
   }
 }
