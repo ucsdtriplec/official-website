@@ -37,16 +37,19 @@
       </v-fade-transition>
       <v-list-item two-line>
         <v-list-item-content>
-          <div class="overline">
+          <div class="overline single-line" style="letter-spacing: 0.15em !important;">
             {{ position }}
           </div>
-          <p class="headline mb-1 text-end">
+          <p
+            class="headline mb-1 text-end"
+            :style="name.length < 17 ? 'font-size: 1.15rem !important;font-weight: 600;' : 'font-size: 0.9rem !important;font-weight: 600;'"
+          >
             {{ name }}
           </p>
         </v-list-item-content>
 
         <v-list-item-avatar
-          size="80"
+          size="75"
         >
           <!-- TODO: add Lazy URL on server side -->
           <v-img
