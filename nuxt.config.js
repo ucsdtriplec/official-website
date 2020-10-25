@@ -62,12 +62,25 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content'
+    // '@nuxtjs/proxy'
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  // axios: {
+  //   proxy: true
+  // },
+
+  // proxy: {
+  //   '/api': {
+  //     target: 'http://localhost:8080',
+  //     pathRewrite: {
+  //       '^/api': '/'
+  //     }
+  //   }
+  // },
+
   /*
   ** Content module configuration
   ** See https://content.nuxtjs.org/configuration

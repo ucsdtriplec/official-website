@@ -10,6 +10,19 @@ export const state = () => ({
   }
 })
 
+export const getters = {
+  getMembersByDepartment (state) {
+    return state.memberList.reduce((result, currentValue) => {
+      // If an array already present for key, push it to the array. Else create an array and push the object
+      (result[currentValue.department] = result[currentValue.department] || []).push(
+        currentValue
+      )
+      return result
+    }, {})
+  },
+  getMemberByName: state => name => state.memberList.filter(member => member.name === name)[0]
+}
+
 export const mutations = {
   updateProjectList (state, data) {
     state.projectList = data
@@ -30,13 +43,7 @@ export const mutations = {
   },
 
   setMemberList (state, data) {
-    state.memberList = data.members.reduce((result, currentValue) => {
-      // If an array already present for key, push it to the array. Else create an array and push the object
-      (result[currentValue.department] = result[currentValue.department] || []).push(
-        currentValue
-      )
-      return result
-    }, {})
+    state.memberList = data.members
   }
 
 }
@@ -59,7 +66,6 @@ export const actions = {
       })
       .catch((error) => {
         commit('showSnackBar', { text: error.message, color: 'error' })
-        return { team: [] }
       })
   }
 }

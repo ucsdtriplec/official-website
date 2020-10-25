@@ -9,7 +9,7 @@
     <v-container v-if="article.team" class="px-0">
       <v-row no-gutters>
         <v-col
-          v-for="(member, idx) in article.team"
+          v-for="(member, idx) in article.team.map(name => $store.getters.getMemberByName(name))"
           :key="idx"
           cols="12"
           xs="12"
@@ -24,9 +24,10 @@
             <MemberCard
               :name="member.name"
               :position="member.position"
-              :description="member.description"
-              :avatar-url="member.avatarUrl"
-              :links="member.links"
+              :description="member.motto"
+              :avatar-url="member.avatar"
+              :links="{email: 'mailto:' + member.email, linkedin: member.linkedin, github: member.github}"
+              :uuid="member.uuid"
               class="align-center"
             />
           </v-row>
@@ -47,9 +48,11 @@ export default {
   components: {
     MemberCard
   },
-  async asyncData ({ $content, params }) {
+  async fetch ({ store, params }) {
+    await store.dispatch('SET_MEMBERLIST')
+  },
+  async asyncData ({ $content, params, store }) {
     const article = await $content('projects', params.slug).fetch()
-
     return { article }
   },
   head () {
