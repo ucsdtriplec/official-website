@@ -296,6 +296,9 @@ export default {
       this.timeLineItems = this.timeLineItems.concat(data)
       this.timelineItemCounter += data.length
     },
+
+    // TODO: Add Fold() to fold the timeline here!
+
     onResize () {
       this.windowSize = { x: window.innerWidth, y: window.innerHeight }
     },
