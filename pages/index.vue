@@ -96,10 +96,6 @@
                     </v-card-title>
                     <v-card-text class="body-1">
                       We partner with employers to provide students networking and employment opportunities. We host both large and small scale events that provide intimate access to highly competitive and sought after employers.
-                      <a
-                        href="/workshop"
-                        class="blue--text"
-                      >Learn more</a>
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -214,7 +210,7 @@
 </template>
 
 <script>
-import { Logo } from '~/components/Logo.vue'
+import Logo from '~/components/Logo.vue'
 export default {
   components: { Logo },
   async asyncData ({ $content }) {

@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { MemberCard } from '~/components/MemberCard.vue'
+import MemberCard from '~/components/MemberCard.vue'
 
 export default {
   components: {
