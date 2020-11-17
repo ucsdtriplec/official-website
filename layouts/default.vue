@@ -96,10 +96,10 @@
               <v-icon> mdi-book </v-icon>
             </v-list-item-icon> -->
 
-          <v-list-item-content>
+          <!-- <v-list-item-content>
             <v-list-item-title> About </v-list-item-title>
           </v-list-item-content>
-          </v-list-item>
+          </v-list-item> -->
 
           <v-list-item nuxt to="/members">
             <v-list-item-icon>
@@ -149,7 +149,10 @@
         <v-card-title>
           <v-layout row wrap align-start>
             <v-flex xs12 md4 class="text-md-left text-center hidden-sm-and-down">
-              <p class="text-h6 mx-8 my-0">
+              <p
+                class="text-h6 mx-8 my-0"
+                style="word-break: break-word;"
+              >
                 Get connected with us on social networks!
               </p>
             </v-flex>
