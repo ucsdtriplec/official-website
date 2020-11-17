@@ -80,32 +80,38 @@ export default {
   ** Content module configuration
   ** See https://content.nuxtjs.org/configuration
   */
-  content: {},
-  /*
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-atom-dark.css'
+      }
+    },
+    /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
   */
-  vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+    vuetify: {
+      customVariables: ['~/assets/variables.scss'],
+      theme: {
+        dark: true,
+        themes: {
+          dark: {
+            primary: colors.blue.darken2,
+            accent: colors.grey.darken3,
+            secondary: colors.amber.darken3,
+            info: colors.teal.lighten1,
+            warning: colors.amber.base,
+            error: colors.deepOrange.accent4,
+            success: colors.green.accent3
+          }
         }
       }
-    }
-  },
-  /*
+    },
+    /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
-  build: {
+    build: {
+    }
   }
 }
