@@ -220,6 +220,7 @@ export default {
     }
   },
   data: () => ({
+    timeLineItems: [],
     windowSize: {
       x: 0,
       y: 0
