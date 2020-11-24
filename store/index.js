@@ -20,9 +20,21 @@ export const getters = {
       return result
     }, {})
   },
-  getMemberByName: state => name => state.memberList.filter(member => member.name === name)[0]
+  getMemberByName: state => name => state.memberList.filter(member => member.name === name)[0] ??
+  {
+    avatar: null,
+    department: '',
+    email: null,
+    github: null,
+    id: null,
+    linkedIn: '',
+    motto: '',
+    name,
+    position: '',
+    project: '',
+    uuid: ''
+  }
 }
-
 export const mutations = {
   updateProjectList (state, data) {
     state.projectList = data

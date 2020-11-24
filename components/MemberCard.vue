@@ -6,7 +6,7 @@
       outlined
       class="transition-swing"
     >
-      <v-fade-transition v-if="description.length | links!={}">
+      <v-fade-transition v-if="description || description.length">
         <v-overlay
           v-if="hover"
           absolute
@@ -22,7 +22,7 @@
                 <v-btn
                   v-for="(url, iconName) in links"
                   :key="iconName"
-                  :href="url"
+                  :href="iconName == 'email' ? 'mailto: ' + url : url"
                   :disabled="!url"
                   icon
                 >
@@ -83,11 +83,11 @@ export default {
     },
     position: {
       type: String,
-      required: true
+      default: ''
     },
     description: {
       type: String,
-      required: true
+      default: ''
     },
     avatarUrl: {
       type: String,

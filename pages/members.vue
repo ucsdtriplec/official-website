@@ -37,7 +37,7 @@
                 :position="member.position"
                 :description="member.motto"
                 :avatar-url="member.avatar"
-                :links="{email: 'mailto:' + member.email, linkedin: member.linkedin, github: member.github}"
+                :links="{email: member.email, linkedin: member.linkedin, github: member.github}"
                 :uuid="member.uuid"
                 class="align-center"
               />

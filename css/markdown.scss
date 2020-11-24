@@ -26,6 +26,11 @@
   @extend %table;
 }
 
+.markdown-body li > p {
+  margin-bottom: auto;
+  margin-top: 0.2em;
+}
+
 .markdown-body details summary {
   cursor: pointer;
 }
