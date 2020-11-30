@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar app dense elevation="2" class="rounded">
       <v-app-bar-nav-icon class="hidden-md-and-up" @click="nav=!nav" />
-      <v-img class="mx-2" src="/logo.png" max-height="40" max-width="40" contain />
+      <v-img class="mx-1" src="/logo.png" max-height="30" max-width="30" contain />
       <v-toolbar-title nuxt to="/">
         <nuxt-link to="/" class="font-weight-bold logo">
           Triple C

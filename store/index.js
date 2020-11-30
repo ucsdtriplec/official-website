@@ -65,7 +65,7 @@ export const actions = {
   // putting the code here because layout pages do not allow asyncDatas
   async nuxtServerInit ({ commit }, { $content }) {
     const data = await $content('projects')
-      .only(['title', 'path'])
+      .only(['title', 'path', 'description'])
       .sortBy('date', 'asc')
       .fetch()
     commit('updateProjectList', data)

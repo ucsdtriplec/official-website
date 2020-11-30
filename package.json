@@ -19,14 +19,19 @@
     "net": "^1.0.2",
     "nuxt": "^2.14.0",
     "nuxt-highlightjs": "^1.0.1",
-    "prism-themes": "^1.5.0"
+    "prism-themes": "^1.5.0",
+    "typeit": "^7.0.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/vuetify": "^1.11.2",
     "babel-eslint": "^10.1.0",
+    "deepmerge": "^4.2.2",
     "eslint": "^7.2.0",
-    "eslint-plugin-nuxt": "^1.0.0"
+    "eslint-plugin-nuxt": "^1.0.0",
+    "fibers": "^5.0.0",
+    "sass": "^1.29.0",
+    "sass-loader": "^8.0.2"
   }
 }

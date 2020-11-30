@@ -246,3 +246,65 @@ mark {
     max-width: 1185px;
   }
 }
+
+.theme--dark .featured_gold {
+  background: linear-gradient(to right, #FFEB3B, #FF9800);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.theme--light .featured_gold {
+  background: linear-gradient(to right, #FBC02D, #F57C00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cursor::before {
+  float: right;
+  content: " ";
+  background-color: #888888;
+  letter-spacing: 0.88px;
+  width: 2px;
+  height: 26px;
+  animation: cursor-blinks 1.5s infinite steps(1, start);
+}
+
+@keyframes cursor-blinks {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+  50% {
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+
+.ti-cursor {
+  font-weight: 500  !important;
+}
+
+.fadeIn {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
+}
+
+.v-parallax__image {
+  max-width: unset;
+}
