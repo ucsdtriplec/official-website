@@ -84,9 +84,8 @@
               </h2>
               <span
                 class="subtitle-1"
-              >"If they look like a pro, if they work like a pro, if they code
-                like a pro, if they team up like a pro, they are the pro,
-                right?"</span>
+              >"To build a community of innovation and collaboration. To share
+                ideas and skills. To grow."</span>
             </div>
           </v-flex>
           <v-flex xs12>
@@ -97,27 +96,37 @@
                     <v-card-text class="text-center">
                       <v-icon
                         x-large
-                        class="green--text text--darken-1 text--lighten-2"
+                        class="blue--text text--darken-1"
                       >
-                        mdi-cogs
+                        mdi-book
                       </v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
                       <div class="headline text-xs-center">
-                        We work.
+                        We learn.
                       </div>
                     </v-card-title>
-                    <v-card-text class="body-1 px-0 px-md-2">
-                      We partner with employers to provide students networking
-                      and employment opportunities. We host both large and small
-                      scale events that provide intimate access to highly
-                      competitive and sought after employers.
+                    <v-card-text class="body-1 px-0 px-md-2" style="hyphens: auto;">
+                      <h3 class="pt-2">
+                        Mentorship Program (New!)
+                      </h3>
+                      An internal program dedicated to
+                      building close connections between our existing members
+                      and those newly joined. Topics include technical
+                      development, career path selection, and tips for academic
+                      development.
+                      <h3 class="pt-2">
+                        Educational Program:
+                      </h3> A group of projects that
+                      aims at improving the technical skills of entry-level
+                      members. Topics include Android Development, Web
+                      development, and Product Design.
                     </v-card-text>
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
-                    <v-card-text class="text-center">
+                    <v-card-text class="text-center" style="hyphens: auto;">
                       <v-icon
                         x-large
                         class="yellow--text text--darken-2 text--lighten-2"
@@ -127,13 +136,34 @@
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
                       <div class="headline">
-                        We <span class="cursor" style="font-family: 'Fira Code', monospace !important; color: #79A9FF">code()</span>
+                        We
+                        <span
+                          class="cursor"
+                          style="
+                            font-family: 'Fira Code', monospace !important;
+                            color: #79a9ff;
+                          "
+                        >code()</span>
                       </div>
                     </v-card-title>
-                    <v-card-text class="body-1 px-0 px-md-2">
-                      We are passionate about technology and service. We develop
-                      applications that benefit the Carnegie Mellon community at
-                      large.
+                    <v-card-text class="body-1 px-0 px-md-2" style="hyphens: auto;">
+                      <h3 class="pt-2">
+                        A Project-Based Student Org
+                      </h3>
+                      A project-based student organization, we have proudly finished
+                      <i> more than twenty projects </i> in the last two years. Our projects range from
+                      mobile apps to data analysis, from deep learning to web
+                      apps.
+                      Check out our <a href="#featured_projects">featured projects</a>!
+                      <h3 class="pt-2">
+                        Pragmatic Minds
+                      </h3>
+                      Our first priority is always to support our development teams and ensure the
+                      engineering success of our projects. We arm every project group with an arsenal of
+                      supporting resources.
+                      <br>
+                      <b><i>In Code We Trust; In
+                        code we Make it happen.</i> </b>
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -153,11 +183,18 @@
                       </div>
                     </v-card-title>
                     <v-card-text class="body-1 px-0 px-md-2">
-                      ACM regularly organizes a variety of talks ranging from
-                      social topics like “How to prepare for an interview” and
-                      technical topics from “An introduction to Rasberry Pi”,
-                      “Debugging Distributed Systems” to “Crossing Numbers,
-                      Humanity and Beauty of Math”.
+                      <h3 class="pt-2">
+                        Demo Day
+                      </h3>
+                      Our grand event for each quarter. We showcase our latest achievement to our general members and industry partners.
+                      <h3 class="pt-2">
+                        Intern Panel
+                      </h3>
+                      Every fall quarter, we invite successful community members to share their industry experience. They always give wonderful insights.
+                      <h3 class="pt-2">
+                        Technical Workshops:
+                      </h3>
+                      We host technical workshops every quarter, with topics include computer vision, product management, internship experience, etc.
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -172,7 +209,7 @@
           <v-layout column wrap class="my-5">
             <v-flex xs12 sm4 class="my-3">
               <div class="text-center">
-                <h2 class="text-h4 font-weight-medium">
+                <h2 id="featured_projects" class="text-h4 font-weight-medium">
                   Featured Projects
                 </h2>
                 <span class="subtitle-1"> *PLACEHOLDER </span>
@@ -253,8 +290,7 @@
                   Time Line
                 </h2>
                 <span class="subtitle-1">
-                  "It's a confluence of small coincidences, stacked to into an
-                  astronomical miracle."
+                  "It’s the time that I’ve wasted here that makes you a masterpiece."
                   <!-- from "Hacking to the gate" -->
                 </span>
               </div>
@@ -268,12 +304,24 @@
                 >
                   <span slot="opposite">{{ item.date }}</span>
                   <v-card class="elevation-0 transparent">
-                    <v-card-title
-                      class="headline"
-                    >
-                      <span :style="!$vuetify.breakpoint.mobile && index % 2 == 1 && !item.body.children.length ? 'width: 100%; text-align: right;' : ''"> {{ item.title }} </span>
+                    <v-card-title class="headline">
+                      <span
+                        style="word-break: break-word;"
+                        :style="
+                          !$vuetify.breakpoint.mobile &&
+                            index % 2 == 1 &&
+                            !item.body.children.length
+                            ? 'width: 100%; text-align: right;'
+                            : ''
+                        "
+                      >
+                        {{ item.title }}
+                      </span>
                     </v-card-title>
-                    <v-card-text v-if="item.body.children.length" class="body-1 pb-0">
+                    <v-card-text
+                      v-if="item.body.children.length"
+                      class="body-1 pb-0"
+                    >
                       <nuxt-content :document="item" />
                     </v-card-text>
                   </v-card>
@@ -296,8 +344,7 @@
                   Photo Album
                 </h2>
                 <span class="subtitle-1">
-                  "Light snow covers my secret thoughts, and dyes the pages of
-                  this pure white album"
+                  "Toast to the ones here today. Toast to the ones that we met on the way."
                 </span>
                 <!-- from "White Album" -->
               </div>
@@ -401,7 +448,10 @@ export default {
       this.subscriptionOverlay = true
       window.localStorage.setItem('visited', 'true')
     }
-    new TypeIt('#title', { speed: 60, strings: 'Innovate and Collaborate @ Triple C' }).go()
+    new TypeIt('#title', {
+      speed: 60,
+      strings: 'Innovate and Collaborate @ Triple C'
+    }).go()
   },
   methods: {
     async loadMore () {
