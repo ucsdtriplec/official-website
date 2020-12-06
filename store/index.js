@@ -1,4 +1,10 @@
 import config from '../config'
+const mailchimp = require('@mailchimp/mailchimp_marketing')
+
+mailchimp.setConfig({
+  apiKey: config.MAILCHIMP_API_KEY,
+  server: config.MAILCHIMP_SERVER
+})
 
 export const state = () => ({
   projectList: [],
@@ -7,7 +13,8 @@ export const state = () => ({
     isOpen: false,
     text: '',
     color: 'success'
-  }
+  },
+  newsletters: []
 })
 
 export const getters = {
@@ -56,8 +63,13 @@ export const mutations = {
 
   setMemberList (state, data) {
     state.memberList = data.members
-  }
+  },
 
+  setNewsletters (state, data) {
+    data = data.campaigns.filter(letter => letter.settings.folder_id === config.MAILCHIMP_FOLDER_ID)
+    data.sort((a, b) => new Date(b.send_time) - new Date(a.send_time))
+    state.newsletters = data
+  }
 }
 
 export const actions = {
@@ -69,6 +81,8 @@ export const actions = {
       .sortBy('date', 'asc')
       .fetch()
     commit('updateProjectList', data)
+    const response = await mailchimp.campaigns.list({ count: 100 })
+    commit('setNewsletters', response)
   },
 
   async SET_MEMBERLIST ({ commit }) {

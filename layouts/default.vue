@@ -12,15 +12,9 @@
       <!-- App bar items -->
       <v-toolbar-items>
         <HelloCarousel />
-        <!-- <v-btn text nuxt to="/about" class="hidden-sm-and-down">
-          About
-        </v-btn> -->
-        <!-- <v-btn text nuxt to="events" class="hidden-sm-and-down">
-          Events
+        <v-btn text nuxt to="/newsletters" class="hidden-sm-and-down">
+          Newsletter
         </v-btn>
-        <v-btn text nuxt to="photos" class="hidden-sm-and-down">
-          Photos
-        </v-btn> -->
         <v-btn text nuxt to="/members" class="hidden-sm-and-down">
           Members
         </v-btn>
@@ -100,6 +94,16 @@
             <v-list-item-title> About </v-list-item-title>
           </v-list-item-content>
           </v-list-item> -->
+
+          <v-list-item nuxt to="/newsletters">
+            <v-list-item-icon>
+              <v-icon> mdi-account-multiple </v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title> Newsletter </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
 
           <v-list-item nuxt to="/members">
             <v-list-item-icon>

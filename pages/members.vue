@@ -3,7 +3,7 @@
     <v-img
       height="300"
       src="/team-cover.jpg"
-      class="ma-2"
+      class="ma-2 rounded"
     />
     <h1 class="display-1 ma-2">
       Meet the team
