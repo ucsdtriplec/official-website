@@ -142,8 +142,6 @@
 
     <v-footer
       padless
-      app
-      absolute
     >
       <v-card
         class="flex"
@@ -202,17 +200,17 @@
         </v-img>
         <v-card-text class="pb-0">
           <div class="d-flex flex-column">
-            <v-btn class="mb-2 red white--text">
+            <v-btn class="mb-2 red white--text" outlined>
               <v-icon left>
                 mdi-account-group
               </v-icon> Join the team
             </v-btn>
-            <v-btn class="mb-2 green white--text">
+            <v-btn class="mb-2 white--text" outlined>
               <v-icon left>
                 mdi-file-document-edit
               </v-icon> Submit a proposal
             </v-btn>
-            <v-btn class="mb-6 blue white--text">
+            <v-btn class="mb-6 white--text" outlined>
               <v-icon left>
                 mdi-handshake
               </v-icon> Support us
