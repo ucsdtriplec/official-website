@@ -76,13 +76,15 @@ export const actions = {
   // automatically fetches the project markdown list when the server inits, to be used for navigation
   // putting the code here because layout pages do not allow asyncDatas
   async nuxtServerInit ({ commit }, { $content }) {
-    const data = await $content('projects')
+    const timelineData = await $content('projects')
       .only(['title', 'path', 'description'])
       .sortBy('date', 'asc')
       .fetch()
-    commit('updateProjectList', data)
-    const response = await mailchimp.campaigns.list({ count: 100 })
-    commit('setNewsletters', response)
+    commit('updateProjectList', timelineData)
+    const newsletterData = await mailchimp.campaigns.list({ count: 100 })
+    commit('setNewsletters', newsletterData)
+    const memberListData = await this.$axios.$post(`${config.API_PREFIX}/members/all`)
+    commit('setMemberList', memberListData)
   },
 
   async SET_MEMBERLIST ({ commit }) {

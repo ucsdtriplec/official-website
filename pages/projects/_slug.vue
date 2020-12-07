@@ -49,9 +49,9 @@ export default {
   components: {
     MemberCard
   },
-  async fetch ({ store, params }) {
-    await store.dispatch('SET_MEMBERLIST')
-  },
+  // async fetch ({ store, params }) {
+  //   await store.dispatch('SET_MEMBERLIST')
+  // },
   async asyncData ({ $content, params, store }) {
     const article = await $content('projects', params.slug).fetch()
     return { article }

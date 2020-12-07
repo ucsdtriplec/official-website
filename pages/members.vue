@@ -51,9 +51,9 @@
 
 <script>
 export default {
-  async fetch ({ store, params }) {
-    await store.dispatch('SET_MEMBERLIST')
-  },
+  // async fetch ({ store, params }) {
+  //   await store.dispatch('SET_MEMBERLIST')
+  // },
   beforeDestroy () {
     this.$store.commit('closeSnackBar')
   }
