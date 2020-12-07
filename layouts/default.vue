@@ -200,7 +200,7 @@
         </v-img>
         <v-card-text class="pb-0">
           <div class="d-flex flex-column">
-            <v-btn class="mb-2 red white--text" outlined>
+            <v-btn class="mb-2 white--text" outlined>
               <v-icon left>
                 mdi-account-group
               </v-icon> Join the team

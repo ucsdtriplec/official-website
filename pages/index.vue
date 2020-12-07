@@ -194,7 +194,7 @@
                       <h3 class="pt-2">
                         Technical Workshops:
                       </h3>
-                      We host technical workshops every quarter, with topics include computer vision, product management, internship experience, etc.
+                      We host technical workshops every quarter, with topics including computer vision, product management, internship experience, etc.
                     </v-card-text>
                   </v-card>
                 </v-flex>
