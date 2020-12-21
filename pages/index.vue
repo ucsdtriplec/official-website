@@ -178,9 +178,9 @@
             <v-btn
               class="ma-2"
               outlined
-              @click="loadMore()"
+              @click="ExOrFold()"
             >
-              Load More
+              {{ btnText }}
             </v-btn>
           </v-flex>
         </v-layout>
@@ -270,7 +270,9 @@ export default {
       v => !!v || 'E-mail is required',
       v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
     ],
-    validEmail: true
+    validEmail: true,
+    expand: false,
+    btnText: 'Load More'
   }),
   watch: {
     loader () {
@@ -297,7 +299,20 @@ export default {
       this.timelineItemCounter += data.length
     },
 
-    // TODO: Add Fold() to fold the timeline here!
+    async ExOrFold () {
+      if (!this.expand) {
+        const data = await this.$content('timeline').sortBy('date').skip(this.timelineItemCounter).limit(3).fetch()
+        this.timeLineItems = this.timeLineItems.concat(data)
+        this.timelineItemCounter += data.length
+        this.expand = true
+        this.btnText = 'Fold'
+      } else {
+        this.timeLineItems = this.timeLineItems.slice(0, this.timeLineItems.length - 3)
+        this.timelineItemCounter -= 3
+        this.expand = false
+        this.btnText = 'Load More'
+      }
+    },
 
     onResize () {
       this.windowSize = { x: window.innerWidth, y: window.innerHeight }
