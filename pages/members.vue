@@ -3,7 +3,7 @@
     <v-img
       height="300"
       src="/team-cover.jpg"
-      class="ma-2"
+      class="ma-2 rounded"
     />
     <h1 class="display-1 ma-2">
       Meet the team
@@ -37,7 +37,7 @@
                 :position="member.position"
                 :description="member.motto"
                 :avatar-url="member.avatar"
-                :links="{email: 'mailto:' + member.email, linkedin: member.linkedin, github: member.github}"
+                :links="{email: member.email, linkedin: member.linkedin, github: member.github}"
                 :uuid="member.uuid"
                 class="align-center"
               />
@@ -51,9 +51,9 @@
 
 <script>
 export default {
-  async fetch ({ store, params }) {
-    await store.dispatch('SET_MEMBERLIST')
-  },
+  // async fetch ({ store, params }) {
+  //   await store.dispatch('SET_MEMBERLIST')
+  // },
   beforeDestroy () {
     this.$store.commit('closeSnackBar')
   }

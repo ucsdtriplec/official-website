@@ -10,9 +10,6 @@
   <p align="center">
     UCSD Triple C official website, now rewritten w/ vuejs, nuxtjs, and vuetify, coming with tons of new features!
     <br />
-    <a href="https://github.com/github_username/repo"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
     <a href="https://github.com/github_username/repo">View Demo</a>
     ·
     <a href="https://github.com/github_username/repo/issues">Report Bug</a>
@@ -32,23 +29,43 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+- [Maintainence](#maintainence)
+  - [Manage Member Information](#manage-member-information)
+  - [Update Timeline](#update-timeline)
+  - [Update Project Readmes](#update-project-readmes)
+  - [Sync Newletters](#sync-newletters)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
 
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Here is the supposedly new version of the ucsd triple official website. It is now under intense development.
+The next generation of the UCSD Triple C official website. It is now under intense development!
 
 ### Built With
-
-* [Nuxt.js]()
-* [Vue.js]()
-* [Vuetify]()
+* Front-end
+  * [Nuxt.js](https://nuxtjs.org)
+  * [Vue.js](https://vuejs.org)
+  * [Vuetify](https://vuetifyjs.com)
+  * Misc
+    * Vuex
+    * Vue Router
+    * Eslint
+    * Babel
+    * Axios
+    * Prism
+    * Typeit
+* Back-end
+  * Springboot
+    * Mysql
+    * Spring Security
+  * AWS
+    * Lambda
+    * Cloud Front
+  * Mailchip API
 
 
 
@@ -58,6 +75,7 @@ Here is the supposedly new version of the ucsd triple official website. It is no
 ### Prerequisites
 
 * yarn
+* ucsdtriplec official web management system [(installation guide)](https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-management-sys)
 ```sh
 # macOS
 $ brew install yarn
@@ -70,7 +88,7 @@ $ curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/
 ```
 
 ### Installation
- 
+
 1. Clone the repo
 ```sh
 $ git clone https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt.git
@@ -81,6 +99,9 @@ $ git clone https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt.git
 $ yarn install
 ```
 2. Build and start the server
+
+> Remember to setup the management system server before you start!
+
 ```bash
 # serve with hot reload at localhost:3000
 $ yarn dev
@@ -95,13 +116,44 @@ $ yarn generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
+## Maintainence
+### Manage Member Information
+Please refer to ucsdtriplec official web management system documentation. Once you finished, regenerate the front end to update the contents.
+
+### Update Timeline
+Edit markdown files in `/content/timeline`. The markdown files should follow the template below.
+```
+---
+title: e.g. "First Online Demo day"
+date: e.g. 06/2020 (should follow DD/MM/YYYY format )
+index: 10 (for sorting timeline, check on your own!)
+---
+A short description of the project (not required). e.g. "Demo day has been an established cultural in Triple C. We host this quarterly event to demonstrate our groups' latest achievement. Due to Covid-19, we shifted this event to streaming platform Bilibili yet still received a high volume of audience."
+```
+
+### Update Project Readmes
+Edit markdown files in `/content/projects`. The markdown files should follow the template below.
+```markdown
+---
+title: 'Title of the project'
+
+team:
+// should exactly match the names in management system
+  - Aa AaAa
+  - Bb BbBb
+  - Cc CcCc
+---
+
+# Introduction
+...
+```
+
+### Sync Newletters
+In mailchimp, drop the newsletters to be shown to folder "newsletters". Regenerated the front end and hopefully everything will be in sync.
 <!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt/issues) for a list of proposed features (and known issues).
-
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -116,15 +168,6 @@ Contributions are what make the open source community such an amazing place to b
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Xiyan Shao - x3shao AT ucsd.edu
 
 Project Link: [https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt](https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt)
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* []()
-* []()
-* []()

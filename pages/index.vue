@@ -1,11 +1,12 @@
 <template>
   <div>
-    <v-dialog v-model="subscriptionOverlay" max-width="400">
+    <!-- Subscription Dialog -->
+    <!-- <v-dialog v-model="subscriptionOverlay" max-width="400">
       <v-card
         ref="form"
         color="#26c6da"
         dark
-        :tile="$vuetify.breakpoint.mobile"
+        :tile="$vuetify.breakpoint.md"
       >
         <v-card-title>
           <v-icon large left>
@@ -18,10 +19,9 @@
           </v-btn>
         </v-card-title>
         <v-card-text class="pb-0 mt-2 px-4">
-          <p
-            class="headline font-weight-bold px-2"
-          >
-            Subscribe to our weekly articles, be in touch with the team, and get involved in our community oppurtunities!
+          <p class="headline font-weight-bold px-2">
+            Subscribe to our weekly articles, be in touch with the team, and get
+            involved in our community oppurtunities!
           </p>
           <v-text-field
             ref="name"
@@ -44,22 +44,30 @@
           </v-btn>
         </v-card-actions>
       </v-card>
-    </v-dialog>
+    </v-dialog> -->
 
     <section>
-      <v-parallax id="homepage-pic" dark src="/homepage_cover_pic.jpg" :height="840" jumbotron>
+      <v-parallax
+        id="homepage-pic"
+        dark
+        src="/homepage_cover_pic.jpg"
+        :height="840"
+        jumbotron
+      >
         <v-row align="center" justify="center">
           <v-col class="text-center" md="4" offset-md="0">
             <Logo class="float-center" />
           </v-col>
           <v-col class="text-center" md="6" offset="0">
-            <h1 class="text-h3 mb-4 text-left font-weight-bold">
-              Innovate and Collaborate @ Triple C
-            </h1>
-            <h4
-              class="text-h6 text-left"
-            >
-              A technology-driven business incubator at UC San Diego, we provide a niche fraught of professional spirit, technical collaboration, and mutual support.
+            <h1
+              id="title"
+              class="text-h3 mb-4 text-left font-weight-bold"
+              style="word-break: break-word"
+            />
+            <h4 class="text-h6 text-left fadeIn">
+              A technology-driven business incubator at UC San Diego, we provide
+              a niche fraught of professional spirit, technical collaboration,
+              and mutual support.
             </h4>
           </v-col>
         </v-row>
@@ -76,7 +84,8 @@
               </h2>
               <span
                 class="subtitle-1"
-              >"If they look like a pro, if they work like a pro, if they code like a pro, if they team up like a pro, they are the pro, right?"</span>
+              >"To build a community of innovation and collaboration. To share
+                ideas and skills. To grow."</span>
             </div>
           </v-flex>
           <v-flex xs12>
@@ -85,38 +94,76 @@
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-center">
-                      <v-icon x-large class="green--text text--darken-1 text--lighten-2">
-                        mdi-cogs
+                      <v-icon
+                        x-large
+                        class="blue--text text--darken-1"
+                      >
+                        mdi-book
                       </v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
                       <div class="headline text-xs-center">
-                        We work.
+                        We learn.
                       </div>
                     </v-card-title>
-                    <v-card-text class="body-1">
-                      We partner with employers to provide students networking and employment opportunities. We host both large and small scale events that provide intimate access to highly competitive and sought after employers.
-                      <a
-                        href="/workshop"
-                        class="blue--text"
-                      >Learn more</a>
+                    <v-card-text class="body-1 px-0 px-md-2" style="hyphens: auto;">
+                      <h3 class="pt-2">
+                        Mentorship Program (New!)
+                      </h3>
+                      An internal program dedicated to
+                      building close connections between our existing members
+                      and those newly joined. Topics include technical
+                      development, career path selection, and tips for academic
+                      development.
+                      <h3 class="pt-2">
+                        Educational Program:
+                      </h3> A group of projects that
+                      aims at improving the technical skills of entry-level
+                      members. Topics include Android Development, Web
+                      development, and Product Design.
                     </v-card-text>
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
-                    <v-card-text class="text-center">
-                      <v-icon x-large class="yellow--text text--darken-2 text--lighten-2">
+                    <v-card-text class="text-center" style="hyphens: auto;">
+                      <v-icon
+                        x-large
+                        class="yellow--text text--darken-2 text--lighten-2"
+                      >
                         mdi-xml
                       </v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
                       <div class="headline">
-                        We code.
+                        We
+                        <span
+                          class="cursor"
+                          style="
+                            font-family: 'Fira Code', monospace !important;
+                            color: #79a9ff;
+                          "
+                        >code()</span>
                       </div>
                     </v-card-title>
-                    <v-card-text class="body-1">
-                      We are passionate about technology and service. We develop applications that benefit the Carnegie Mellon community at large.
+                    <v-card-text class="body-1 px-0 px-md-2" style="hyphens: auto;">
+                      <h3 class="pt-2">
+                        A Project-Based Student Org
+                      </h3>
+                      A project-based student organization, we have proudly finished
+                      <i> more than twenty projects </i> in the last two years. Our projects range from
+                      mobile apps to data analysis, from deep learning to web
+                      apps.
+                      Check out our <a href="#featured_projects">featured projects</a>!
+                      <h3 class="pt-2">
+                        Pragmatic Minds
+                      </h3>
+                      Our first priority is always to support our development teams and ensure the
+                      engineering success of our projects. We arm every project group with an arsenal of
+                      supporting resources.
+                      <br>
+                      <b><i>In Code We Trust; In
+                        code we Make it happen.</i> </b>
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -135,8 +182,19 @@
                         We share.
                       </div>
                     </v-card-title>
-                    <v-card-text class="body-1">
-                      ACM regularly organizes a variety of talks ranging from social topics like “How to prepare for an interview” and technical topics from “An introduction to Rasberry Pi”, “Debugging Distributed Systems” to “Crossing Numbers, Humanity and Beauty of Math”.
+                    <v-card-text class="body-1 px-0 px-md-2">
+                      <h3 class="pt-2">
+                        Demo Day
+                      </h3>
+                      Our grand event for each quarter. We showcase our latest achievement to our general members and industry partners.
+                      <h3 class="pt-2">
+                        Intern Panel
+                      </h3>
+                      Every fall quarter, we invite successful community members to share their industry experience. They always give wonderful insights.
+                      <h3 class="pt-2">
+                        Technical Workshops:
+                      </h3>
+                      We host technical workshops every quarter, with topics including computer vision, product management, internship experience, etc.
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -146,84 +204,185 @@
         </v-layout>
       </section>
 
-      <section class="section-body color--red">
-        <v-layout column wrap class="my-5">
-          <v-flex xs12 sm4 class="my-3">
-            <div class="text-center">
-              <h2 class="text-h4 font-weight-medium">
-                Time Line
-              </h2>
-              <span class="subtitle-1">
-                "It's a confluence of small coincidences, stacked to into an astronomical miracle."
-                <!-- from "Hacking to the gate" -->
-              </span>
-            </div>
-          </v-flex>
-          <v-flex xs12>
-            <v-timeline :dense="$vuetify.breakpoint.mobile">
-              <v-timeline-item v-for="(item, index) in timeLineItems" :key="index">
-                <span slot="opposite">{{ item.date }}</span>
-                <v-card class="elevation-0 transparent">
-                  <v-card-title class="headline">
-                    {{ item.title }}
-                  </v-card-title>
-                  <v-card-text class="body-1">
-                    <nuxt-content :document="item" />
-                  </v-card-text>
-                </v-card>
-              </v-timeline-item>
-            </v-timeline>
-          </v-flex>
-          <v-flex xs12 class="text-center">
-            <v-btn
-              class="ma-2"
-              outlined
-              @click="loadMore()"
-            >
-              Load More
-            </v-btn>
-          </v-flex>
-        </v-layout>
-      </section>
+      <div class="py-5">
+        <section class="section-body">
+          <v-layout column wrap class="my-5">
+            <v-flex xs12 sm4 class="my-3">
+              <div class="text-center">
+                <h2 id="featured_projects" class="text-h4 font-weight-medium">
+                  Featured Projects
+                </h2>
+                <span class="subtitle-1"> *PLACEHOLDER </span>
+              </div>
+            </v-flex>
+            <v-flex xs12>
+              <v-container grid-list-xl>
+                <v-layout row wrap align-start>
+                  <v-flex xs12 md6 nuxt>
+                    <v-card class="elevation-0 transparent">
+                      <v-card-title
+                        primary-title
+                        class="layout justify-center featured_gold"
+                        style="font-weight: 700"
+                      >
+                        <div
+                          class="headline text-xs-center"
+                          style="font-weight: 700"
+                        >
+                          ❇ Official Website ❇
+                        </div>
+                      </v-card-title>
+                      <v-img
+                        height="250"
+                        src="https://picsum.photos/250/300"
+                        class="mx-0 mx-md-2 rounded-lg"
+                      />
+                      <v-card-text class="body-1 px-0 px-md-2">
+                        Triple C official website is the central branding hub
+                        for our organization. It introduces our quarterly
+                        projects, releases newest announcements and showcases
+                        our gallery. Its user friendly UI enables visitors to
+                        easily browse project details and event timelines.
+                        <a href="/projects/official-website"> Learn More </a>
+                      </v-card-text>
+                    </v-card>
+                  </v-flex>
+                  <v-flex xs12 md6 nuxt>
+                    <v-card class="elevation-0 transparent">
+                      <v-card-title
+                        primary-title
+                        class="layout justify-center featured_gold"
+                        style="font-weight: 700"
+                      >
+                        <div
+                          class="headline text-xs-center"
+                          style="font-weight: 700"
+                        >
+                          ❇ Xplore UCSD ❇
+                        </div>
+                      </v-card-title>
+                      <v-img
+                        height="250"
+                        src="https://picsum.photos/250/600"
+                        class="mx-0 mx-md-2 rounded-lg"
+                      />
+                      <v-card-text class="body-1 px-0 px-md-2">
+                        Essentially, X-Plore UCSD is a mobile application that
+                        aims to provide a pleasant, easy-to-use, and highly
+                        customizable guided touring experience for all tourists
+                        and prospective students visiting the UC San Diego
+                        campus. Thus, a “virtual tour guide” for everyone.
+                        <a href="/projects/xplore"> Learn More </a>
+                      </v-card-text>
+                    </v-card>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-flex>
+          </v-layout>
+        </section>
 
-      <section class="section-body">
-        <v-layout column wrap class="my-5">
-          <v-flex xs12 sm4 class="my-3">
-            <div class="text-center">
-              <h2 class="text-h4 font-weight-medium">
-                Photo Album
-              </h2>
-              <span class="subtitle-1">
-                "Light snow covers my secret thoughts,
-                and dyes the pages of this pure white album"
-              </span>
-              <!-- from "White Album" -->
-            </div>
-          </v-flex>
-          <v-flex xs12 sm4 class="my-3">
-            <v-card max-width="1200" class="mx-auto">
-              <v-carousel hide-delimiters show-arrows-on-hover cycle>
-                <v-carousel-item v-for="(item,i) in carouselItems" :key="i" :src="item.src" />
-              </v-carousel>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </section>
+        <section class="section-body color--red">
+          <v-layout column wrap class="my-5">
+            <v-flex xs12 sm4 class="my-3">
+              <div class="text-center">
+                <h2 class="text-h4 font-weight-medium">
+                  Time Line
+                </h2>
+                <span class="subtitle-1">
+                  "It’s the time that I’ve wasted here that makes you a masterpiece."
+                  <!-- from "Hacking to the gate" -->
+                </span>
+              </div>
+            </v-flex>
+            <v-flex xs12>
+              <v-timeline :dense="$vuetify.breakpoint.mobile">
+                <v-timeline-item
+                  v-for="(item, index) in timeLineItems"
+                  :key="index"
+                  class="pb-0"
+                >
+                  <span slot="opposite">{{ item.date }}</span>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-title class="headline">
+                      <span
+                        style="word-break: break-word;"
+                        :style="
+                          !$vuetify.breakpoint.mobile &&
+                            index % 2 == 1 &&
+                            !item.body.children.length
+                            ? 'width: 100%; text-align: right;'
+                            : ''
+                        "
+                      >
+                        {{ item.title }}
+                      </span>
+                    </v-card-title>
+                    <v-card-text
+                      v-if="item.body.children.length"
+                      class="body-1 pb-0"
+                    >
+                      <nuxt-content :document="item" />
+                    </v-card-text>
+                  </v-card>
+                </v-timeline-item>
+              </v-timeline>
+            </v-flex>
+            <v-flex xs12 class="text-center">
+              <v-btn class="ma-2" outlined @click="loadMore()">
+                Load More
+              </v-btn>
+            </v-flex>
+          </v-layout>
+        </section>
+
+        <section class="section-body">
+          <v-layout column wrap class="my-5">
+            <v-flex xs12 sm4 class="my-3">
+              <div class="text-center">
+                <h2 class="text-h4 font-weight-medium">
+                  Photo Album
+                </h2>
+                <span class="subtitle-1">
+                  "Toast to the ones here today. Toast to the ones that we met on the way."
+                </span>
+                <!-- from "White Album" -->
+              </div>
+            </v-flex>
+            <v-flex xs12 sm4 class="my-3">
+              <v-card max-width="1200" class="mx-auto">
+                <v-carousel hide-delimiters show-arrows-on-hover cycle>
+                  <v-carousel-item
+                    v-for="(item, i) in carouselItems"
+                    :key="i"
+                    :src="item.src"
+                  />
+                </v-carousel>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </section>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Logo } from '~/components/Logo.vue'
+import TypeIt from 'typeit'
+import Logo from '~/components/Logo.vue'
 export default {
   components: { Logo },
   async asyncData ({ $content }) {
-    const timeLineItems = await $content('timeline').sortBy('date').limit(3).fetch()
+    const timeLineItems = await $content('timeline')
+      .sortBy('index', 'desc')
+      .limit(3)
+      .fetch()
     return {
       timeLineItems
     }
   },
   data: () => ({
+    timeLineItems: [],
     windowSize: {
       x: 0,
       y: 0
@@ -289,10 +448,18 @@ export default {
       this.subscriptionOverlay = true
       window.localStorage.setItem('visited', 'true')
     }
+    new TypeIt('#title', {
+      speed: 60,
+      strings: 'Innovate and Collaborate @ Triple C'
+    }).go()
   },
   methods: {
     async loadMore () {
-      const data = await this.$content('timeline').sortBy('date').skip(this.timelineItemCounter).limit(3).fetch()
+      const data = await this.$content('timeline')
+        .sortBy('index', 'desc')
+        .skip(this.timelineItemCounter)
+        .limit(3)
+        .fetch()
       this.timeLineItems = this.timeLineItems.concat(data)
       this.timelineItemCounter += data.length
     },

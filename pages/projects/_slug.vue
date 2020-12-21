@@ -21,12 +21,13 @@
             justify="center"
             class="ma-2"
           >
+            <!-- {{ member }} -->
             <MemberCard
               :name="member.name"
               :position="member.position"
               :description="member.motto"
               :avatar-url="member.avatar"
-              :links="{email: 'mailto:' + member.email, linkedin: member.linkedin, github: member.github}"
+              :links="{email: member.email, linkedin: member.linkedin, github: member.github}"
               :uuid="member.uuid"
               class="align-center"
             />
@@ -42,15 +43,15 @@
 </template>
 
 <script>
-import { MemberCard } from '~/components/MemberCard.vue'
+import MemberCard from '~/components/MemberCard.vue'
 
 export default {
   components: {
     MemberCard
   },
-  async fetch ({ store, params }) {
-    await store.dispatch('SET_MEMBERLIST')
-  },
+  // async fetch ({ store, params }) {
+  //   await store.dispatch('SET_MEMBERLIST')
+  // },
   async asyncData ({ $content, params, store }) {
     const article = await $content('projects', params.slug).fetch()
     return { article }

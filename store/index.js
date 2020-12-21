@@ -1,4 +1,10 @@
 import config from '../config'
+const mailchimp = require('@mailchimp/mailchimp_marketing')
+
+mailchimp.setConfig({
+  apiKey: config.MAILCHIMP_API_KEY,
+  server: config.MAILCHIMP_SERVER
+})
 
 export const state = () => ({
   projectList: [],
@@ -7,7 +13,8 @@ export const state = () => ({
     isOpen: false,
     text: '',
     color: 'success'
-  }
+  },
+  newsletters: []
 })
 
 export const getters = {
@@ -20,9 +27,21 @@ export const getters = {
       return result
     }, {})
   },
-  getMemberByName: state => name => state.memberList.filter(member => member.name === name)[0]
+  getMemberByName: state => name => state.memberList.filter(member => member.name === name)[0] ??
+  {
+    avatar: null,
+    department: '',
+    email: null,
+    github: null,
+    id: null,
+    linkedIn: '',
+    motto: '',
+    name,
+    position: '',
+    project: '',
+    uuid: ''
+  }
 }
-
 export const mutations = {
   updateProjectList (state, data) {
     state.projectList = data
@@ -44,19 +63,28 @@ export const mutations = {
 
   setMemberList (state, data) {
     state.memberList = data.members
-  }
+  },
 
+  setNewsletters (state, data) {
+    data = data.campaigns.filter(letter => letter.settings.folder_id === config.MAILCHIMP_FOLDER_ID)
+    data.sort((a, b) => new Date(b.send_time) - new Date(a.send_time))
+    state.newsletters = data
+  }
 }
 
 export const actions = {
   // automatically fetches the project markdown list when the server inits, to be used for navigation
   // putting the code here because layout pages do not allow asyncDatas
   async nuxtServerInit ({ commit }, { $content }) {
-    const data = await $content('projects')
-      .only(['title', 'path'])
+    const timelineData = await $content('projects')
+      .only(['title', 'path', 'description'])
       .sortBy('date', 'asc')
       .fetch()
-    commit('updateProjectList', data)
+    commit('updateProjectList', timelineData)
+    const newsletterData = await mailchimp.campaigns.list({ count: 100 })
+    commit('setNewsletters', newsletterData)
+    const memberListData = await this.$axios.$post(`${config.API_PREFIX}/members/all`)
+    commit('setMemberList', memberListData)
   },
 
   async SET_MEMBERLIST ({ commit }) {

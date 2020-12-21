@@ -1,0 +1,20 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+$body-font-family: 'Fira Sans', sans-serif;
+$title-font: 'Fira Sans', sans-serif;
+
+$headings: (
+  'h5': (
+    'weight': 500
+  ),
+  'h2': (
+    'weight': 700
+  )
+);
+
+@import '~vuetify/src/styles/styles.sass';

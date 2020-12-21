@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar app dense elevation="2" class="rounded">
       <v-app-bar-nav-icon class="hidden-md-and-up" @click="nav=!nav" />
-      <v-img class="mx-2" src="/logo.png" max-height="40" max-width="40" contain />
+      <v-img class="mx-1" src="/logo.png" max-height="30" max-width="30" contain />
       <v-toolbar-title nuxt to="/">
         <nuxt-link to="/" class="font-weight-bold logo">
           Triple C
@@ -12,15 +12,9 @@
       <!-- App bar items -->
       <v-toolbar-items>
         <HelloCarousel />
-        <v-btn text nuxt to="/about" class="hidden-sm-and-down">
-          About
+        <v-btn text nuxt to="/newsletters" class="hidden-sm-and-down">
+          Newsletter
         </v-btn>
-        <!-- <v-btn text nuxt to="events" class="hidden-sm-and-down">
-          Events
-        </v-btn>
-        <v-btn text nuxt to="photos" class="hidden-sm-and-down">
-          Photos
-        </v-btn> -->
         <v-btn text nuxt to="/members" class="hidden-sm-and-down">
           Members
         </v-btn>
@@ -91,13 +85,23 @@
             </v-list-item-content>
           </v-list-item>
 
-          <v-list-item nuxt to="/about">
+          <!-- <v-list-item nuxt to="/about">
             <v-list-item-icon>
               <v-icon> mdi-book </v-icon>
+            </v-list-item-icon> -->
+
+          <!-- <v-list-item-content>
+            <v-list-item-title> About </v-list-item-title>
+          </v-list-item-content>
+          </v-list-item> -->
+
+          <v-list-item nuxt to="/newsletters">
+            <v-list-item-icon>
+              <v-icon> mdi-account-multiple </v-icon>
             </v-list-item-icon>
 
             <v-list-item-content>
-              <v-list-item-title> About </v-list-item-title>
+              <v-list-item-title> Newsletter </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
@@ -138,8 +142,6 @@
 
     <v-footer
       padless
-      app
-      absolute
     >
       <v-card
         class="flex"
@@ -149,7 +151,10 @@
         <v-card-title>
           <v-layout row wrap align-start>
             <v-flex xs12 md4 class="text-md-left text-center hidden-sm-and-down">
-              <p class="text-h6 mx-8 my-0">
+              <p
+                class="text-h6 mx-8 my-0"
+                style="word-break: break-word;"
+              >
                 Get connected with us on social networks!
               </p>
             </v-flex>
@@ -195,17 +200,17 @@
         </v-img>
         <v-card-text class="pb-0">
           <div class="d-flex flex-column">
-            <v-btn class="mb-2 red white--text">
+            <v-btn class="mb-2 white--text" outlined>
               <v-icon left>
                 mdi-account-group
               </v-icon> Join the team
             </v-btn>
-            <v-btn class="mb-2 green white--text">
+            <v-btn class="mb-2 white--text" outlined>
               <v-icon left>
                 mdi-file-document-edit
               </v-icon> Submit a proposal
             </v-btn>
-            <v-btn class="mb-6 blue white--text">
+            <v-btn class="mb-6 white--text" outlined>
               <v-icon left>
                 mdi-handshake
               </v-icon> Support us
@@ -253,7 +258,7 @@
 </template>
 
 <script>
-import { HelloCarousel } from '~/components/HelloCarousel.vue'
+import HelloCarousel from '~/components/HelloCarousel.vue'
 export default {
   components: {
     HelloCarousel

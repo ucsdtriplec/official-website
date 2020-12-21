@@ -2,6 +2,7 @@
 title: Xplore
 description: 'X-Plore UCSD'
 ---
+*Note: Xplore has become an independent project since 2020*
 ### Missions
 Essentially, X-Plore UCSD is a mobile application that aims to provide a pleasant, easy-to-use, and highly customizable guided touring experience for all tourists and prospective students visiting the UC San Diego campus. Thus, a “virtual tour guide” for everyone.
 

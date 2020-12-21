@@ -1,3 +1,5 @@
+@import "./tables.scss";
+
 .markdown-body {
   box-sizing: border-box;
   min-width: 200px;
@@ -6,8 +8,37 @@
   padding: 40px;
 }
 
+.markdown-body pre > code {
+  font-family: 'Fira Code', monospace !important;
+  background-color: unset !important;
+  color: unset !important;
+  border: unset !important;
+  border-color: unset !important;
+}
+
+.markdown-body pre {
+  border: unset !important;
+  border-radius: 5;
+  font-size: unset !important;
+  font-family: 'Fira Code', monospace !important;
+  background-color: rgb(39,39,39) !important;
+}
+
+.markdown-body table {
+  @extend %table;
+}
+
+.markdown-body li > p {
+  margin-bottom: auto;
+  margin-top: 0.2em;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
 @media (max-width: 767px) {
-  .markdown-body {  
+  .markdown-body {
     padding: 15px;
   }
 }

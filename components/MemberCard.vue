@@ -1,17 +1,13 @@
 <template>
   <!-- TODO: implement this hover effect -->
   <v-hover v-slot:default="{ hover }">
-    <v-card
-      width="344"
-      outlined
-      class="transition-swing"
-    >
-      <v-fade-transition v-if="description.length | links!={}">
+    <v-card width="344" outlined class="transition-swing">
+      <v-fade-transition v-if="description || description.length">
         <v-overlay
           v-if="hover"
           absolute
           color="blue"
-          style="backdrop-filter: blur(2px);"
+          style="backdrop-filter: blur(2px)"
         >
           <v-list-item two-line>
             <v-list-item-content>
@@ -22,7 +18,7 @@
                 <v-btn
                   v-for="(url, iconName) in links"
                   :key="iconName"
-                  :href="url"
+                  :href="iconName == 'email' ? 'mailto: ' + url : url"
                   :disabled="!url"
                   icon
                 >
@@ -37,32 +33,29 @@
       </v-fade-transition>
       <v-list-item two-line>
         <v-list-item-content>
-          <div class="overline single-line" style="letter-spacing: 0.15em !important;">
+          <div
+            class="overline single-line"
+            style="letter-spacing: 0.15em !important"
+          >
             {{ position }}
           </div>
           <p
             class="headline mb-1 text-end"
-            :style="name.length < 17 ? 'font-size: 1.15rem !important;font-weight: 600;' : 'font-size: 0.9rem !important;font-weight: 600;'"
+            :style="
+              name.length < 17
+                ? 'font-size: 1.15rem !important;font-weight: 600;'
+                : 'font-size: 0.9rem !important;font-weight: 600;'
+            "
           >
             {{ name }}
           </p>
         </v-list-item-content>
 
-        <v-list-item-avatar
-          size="75"
-        >
+        <v-list-item-avatar size="75">
           <!-- TODO: add Lazy URL on server side -->
-          <v-img
-            :src="getCompressedImageUrl(avatarUrl, 75, 75)"
-            :lazy-src="getCompressedImageUrl(avatarUrl, 10, 10)"
-            :alt="name"
-          >
+          <v-img :src="getCompressedImageUrl(avatarUrl, 75, 75)" :alt="name">
             <template v-slot:placeholder>
-              <v-row
-                class="fill-height ma-0"
-                align="center"
-                justify="center"
-              >
+              <v-row class="fill-height ma-0" align="center" justify="center">
                 <v-progress-circular indeterminate color="grey lighten-5" />
               </v-row>
             </template>
@@ -83,15 +76,15 @@ export default {
     },
     position: {
       type: String,
-      required: true
+      default: ''
     },
     description: {
       type: String,
-      required: true
+      default: ''
     },
     avatarUrl: {
       type: String,
-      default: '/default-avatar.jpg'
+      default: '/default_avatar/avatar_d1'
     },
     links: {
       type: Object,
@@ -100,8 +93,20 @@ export default {
   },
   data () {
     return {
+      imgLoaded: false,
+      modifiedUrl: '',
       getCompressedImageUrl (url, width, height) {
-        if (url == null) { return '/default-avatar.jpg' }
+        if (this.imgLoaded) {
+          return this.modifiedUrl
+        }
+        this.imgLoaded = true
+        if (url == null) {
+          this.modifiedUrl =
+            '/default_avatar/avatar-d' +
+            Math.floor(Math.random() * 12 + 1) +
+            '.png'
+          return this.modifiedUrl
+        }
         const imageRequest = JSON.stringify({
           bucket: config.AWS_BUCKET_NAME,
           key: url.substring(url.lastIndexOf('/') + 1),
@@ -113,7 +118,12 @@ export default {
             }
           }
         })
-        return config.IMAGE_HANDLER_ENDPOINT + '/' + Buffer.from(imageRequest).toString('base64')
+        this.modifiedUrl = (
+          config.IMAGE_HANDLER_ENDPOINT +
+          '/' +
+          Buffer.from(imageRequest).toString('base64')
+        )
+        return this.modifiedUrl
       }
     }
   }
