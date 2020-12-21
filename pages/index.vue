@@ -180,7 +180,7 @@
               outlined
               @click="ExOrFold()"
             >
-              {{ btnText }}
+              {{ buttonText }}
             </v-btn>
           </v-flex>
         </v-layout>
@@ -272,7 +272,7 @@ export default {
     ],
     validEmail: true,
     expand: false,
-    btnText: 'Load More'
+    buttonText: 'Load More'
   }),
   watch: {
     loader () {
@@ -299,12 +299,12 @@ export default {
         this.timeLineItems = this.timeLineItems.concat(data)
         this.timelineItemCounter += data.length
         this.expand = true
-        this.btnText = 'Fold'
+        this.buttonText = 'Fold'
       } else {
         this.timeLineItems = this.timeLineItems.slice(0, this.timeLineItems.length - 3)
         this.timelineItemCounter -= 3
         this.expand = false
-        this.btnText = 'Load More'
+        this.buttonText = 'Load More'
       }
     },
 
