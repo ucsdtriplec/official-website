@@ -329,8 +329,12 @@
               </v-timeline>
             </v-flex>
             <v-flex xs12 class="text-center">
-              <v-btn class="ma-2" outlined @click="loadMore()">
-                Load More
+              <v-btn
+              class="ma-2"
+              outlined
+              @click="ExOrFold()"
+              >
+                {{ buttonText }}
               </v-btn>
             </v-flex>
           </v-layout>
@@ -429,7 +433,9 @@ export default {
       v => !!v || 'E-mail is required',
       v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
     ],
-    validEmail: true
+    validEmail: true,
+    expand: false,
+    buttonText: 'Load More'
   }),
   watch: {
     loader () {
@@ -454,17 +460,20 @@ export default {
     }).go()
   },
   methods: {
-    async loadMore () {
-      const data = await this.$content('timeline')
-        .sortBy('index', 'desc')
-        .skip(this.timelineItemCounter)
-        .limit(3)
-        .fetch()
-      this.timeLineItems = this.timeLineItems.concat(data)
-      this.timelineItemCounter += data.length
+    async ExOrFold () {
+      if (!this.expand) {
+        const data = await this.$content('timeline').sortBy('date').skip(this.timelineItemCounter).limit(3).fetch()
+        this.timeLineItems = this.timeLineItems.concat(data)
+        this.timelineItemCounter += data.length
+        this.expand = true
+        this.buttonText = 'Fold'
+      } else {
+        this.timeLineItems = this.timeLineItems.slice(0, this.timeLineItems.length - 3)
+        this.timelineItemCounter -= 3
+        this.expand = false
+        this.buttonText = 'Load More'
+      }
     },
-
-    // TODO: Add Fold() to fold the timeline here!
 
     onResize () {
       this.windowSize = { x: window.innerWidth, y: window.innerHeight }
