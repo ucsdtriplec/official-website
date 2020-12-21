@@ -293,12 +293,6 @@ export default {
     }
   },
   methods: {
-    async loadMore () {
-      const data = await this.$content('timeline').sortBy('date').skip(this.timelineItemCounter).limit(3).fetch()
-      this.timeLineItems = this.timeLineItems.concat(data)
-      this.timelineItemCounter += data.length
-    },
-
     async ExOrFold () {
       if (!this.expand) {
         const data = await this.$content('timeline').sortBy('date').skip(this.timelineItemCounter).limit(3).fetch()
