@@ -65,9 +65,9 @@
               style="word-break: break-word"
             />
             <h4 class="text-h6 text-left fadeIn">
-              A technology-driven business incubator at UC San Diego, we provide
-              a niche fraught of professional spirit, technical collaboration,
-              and mutual support.
+              This is UCSD Chinese Computer Community. A technology-driven
+              business incubator at UC San Diego, we provide a niche fraught of
+              professional spirit, technical collaboration, and mutual support.
             </h4>
           </v-col>
         </v-row>
@@ -94,10 +94,7 @@
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-center">
-                      <v-icon
-                        x-large
-                        class="blue--text text--darken-1"
-                      >
+                      <v-icon x-large class="blue--text text--darken-1">
                         mdi-book
                       </v-icon>
                     </v-card-text>
@@ -106,27 +103,29 @@
                         We learn.
                       </div>
                     </v-card-title>
-                    <v-card-text class="body-1 px-0 px-md-2" style="hyphens: auto;">
+                    <v-card-text
+                      class="body-1 px-0 px-md-2"
+                      style="hyphens: auto"
+                    >
                       <h3 class="pt-2">
                         Mentorship Program (New!)
                       </h3>
-                      An internal program dedicated to
-                      building close connections between our existing members
-                      and those newly joined. Topics include technical
-                      development, career path selection, and tips for academic
-                      development.
+                      An internal program dedicated to building close
+                      connections between our existing members and those newly
+                      joined. Topics include technical development, career path
+                      selection, and tips for academic development.
                       <h3 class="pt-2">
                         Educational Program:
-                      </h3> A group of projects that
-                      aims at improving the technical skills of entry-level
-                      members. Topics include Android Development, Web
-                      development, and Product Design.
+                      </h3>
+                      A group of projects that aims at improving the technical
+                      skills of entry-level members. Topics include Android
+                      Development, Web development, and Product Design.
                     </v-card-text>
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
-                    <v-card-text class="text-center" style="hyphens: auto;">
+                    <v-card-text class="text-center" style="hyphens: auto">
                       <v-icon
                         x-large
                         class="yellow--text text--darken-2 text--lighten-2"
@@ -146,24 +145,29 @@
                         >code()</span>
                       </div>
                     </v-card-title>
-                    <v-card-text class="body-1 px-0 px-md-2" style="hyphens: auto;">
+                    <v-card-text
+                      class="body-1 px-0 px-md-2"
+                      style="hyphens: auto"
+                    >
                       <h3 class="pt-2">
                         A Project-Based Student Org
                       </h3>
-                      A project-based student organization, we have proudly finished
-                      <i> more than twenty projects </i> in the last two years. Our projects range from
-                      mobile apps to data analysis, from deep learning to web
-                      apps.
-                      Check out our <a href="#featured_projects">featured projects</a>!
+                      A project-based student organization, we have proudly
+                      finished
+                      <i> more than twenty projects </i> in the last two years.
+                      Our projects range from mobile apps to data analysis, from
+                      deep learning to web apps. Check out our
+                      <a href="#featured_projects">featured projects</a>!
                       <h3 class="pt-2">
                         Pragmatic Minds
                       </h3>
-                      Our first priority is always to support our development teams and ensure the
-                      engineering success of our projects. We arm every project group with an arsenal of
-                      supporting resources.
+                      Our first priority is always to support our development
+                      teams and ensure the engineering success of our projects.
+                      We arm every project group with an arsenal of supporting
+                      resources.
                       <br>
-                      <b><i>In Code We Trust; In
-                        code we Make it happen.</i> </b>
+                      <b><i>In Code We Trust; In code we Make it happen.</i>
+                      </b>
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -186,15 +190,20 @@
                       <h3 class="pt-2">
                         Demo Day
                       </h3>
-                      Our grand event for each quarter. We showcase our latest achievement to our general members and industry partners.
+                      Our grand event for each quarter. We showcase our latest
+                      achievement to our general members and industry partners.
                       <h3 class="pt-2">
                         Intern Panel
                       </h3>
-                      Every fall quarter, we invite successful community members to share their industry experience. They always give wonderful insights.
+                      Every fall quarter, we invite successful community members
+                      to share their industry experience. They always give
+                      wonderful insights.
                       <h3 class="pt-2">
                         Technical Workshops:
                       </h3>
-                      We host technical workshops every quarter, with topics including computer vision, product management, internship experience, etc.
+                      We host technical workshops every quarter, with topics
+                      including computer vision, product management, internship
+                      experience, etc.
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -229,7 +238,7 @@
                           class="headline text-xs-center"
                           style="font-weight: 700"
                         >
-                          ❇ Official Website ❇
+                          ❇ Kaggle Team Competition ❇
                         </div>
                       </v-card-title>
                       <v-img
@@ -238,12 +247,8 @@
                         class="mx-0 mx-md-2 rounded-lg"
                       />
                       <v-card-text class="body-1 px-0 px-md-2">
-                        Triple C official website is the central branding hub
-                        for our organization. It introduces our quarterly
-                        projects, releases newest announcements and showcases
-                        our gallery. Its user friendly UI enables visitors to
-                        easily browse project details and event timelines.
-                        <a href="/projects/official-website"> Learn More </a>
+                        Triple C’s two data science teams compete in two Kaggle competitions every quarter. We collect, extract and clean specified datasets. We perform data analysis and then use visualization tools to present the results. We build machine learning models to perform predictions.
+                        <a href="/projects/kaggle"> Learn More </a>
                       </v-card-text>
                     </v-card>
                   </v-flex>
@@ -290,7 +295,8 @@
                   Time Line
                 </h2>
                 <span class="subtitle-1">
-                  "It’s the time that I’ve wasted here that makes you a masterpiece."
+                  "It’s the time that I’ve wasted here that makes you a
+                  masterpiece."
                   <!-- from "Hacking to the gate" -->
                 </span>
               </div>
@@ -306,7 +312,7 @@
                   <v-card class="elevation-0 transparent">
                     <v-card-title class="headline">
                       <span
-                        style="word-break: break-word;"
+                        style="word-break: break-word"
                         :style="
                           !$vuetify.breakpoint.mobile &&
                             index % 2 == 1 &&
@@ -329,11 +335,7 @@
               </v-timeline>
             </v-flex>
             <v-flex xs12 class="text-center">
-              <v-btn
-              class="ma-2"
-              outlined
-              @click="ExOrFold()"
-              >
+              <v-btn class="ma-2" outlined @click="ExOrFold()">
                 {{ buttonText }}
               </v-btn>
             </v-flex>
@@ -348,7 +350,8 @@
                   Photo Album
                 </h2>
                 <span class="subtitle-1">
-                  "Toast to the ones here today. Toast to the ones that we met on the way."
+                  "Toast to the ones here today. Toast to the ones that we met
+                  on the way."
                 </span>
                 <!-- from "White Album" -->
               </div>
@@ -357,7 +360,7 @@
               <v-card max-width="1200" class="mx-auto">
                 <v-carousel hide-delimiters show-arrows-on-hover cycle>
                   <v-carousel-item
-                    v-for="(item, i) in carouselItems"
+                    v-for="(item, i) in images"
                     :key="i"
                     :src="item.src"
                   />
@@ -387,6 +390,7 @@ export default {
   },
   data: () => ({
     timeLineItems: [],
+    images: [],
     windowSize: {
       x: 0,
       y: 0
@@ -458,6 +462,8 @@ export default {
       speed: 60,
       strings: 'Innovate and Collaborate @ Triple C'
     }).go()
+    // import all images in the gallery folder
+    this.importAll(require.context('@/static/gallery', true, /\.jpeg$/))
   },
   methods: {
     async ExOrFold () {
@@ -474,7 +480,9 @@ export default {
         this.buttonText = 'Load More'
       }
     },
-
+    importAll (r) {
+      r.keys().forEach(key => (this.images.push({ src: '/gallery/' + key.substring(1) })))
+    },
     onResize () {
       this.windowSize = { x: window.innerWidth, y: window.innerHeight }
     },
