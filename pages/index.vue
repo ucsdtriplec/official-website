@@ -335,17 +335,8 @@
               </v-timeline>
             </v-flex>
             <v-flex xs12 class="text-center">
-<<<<<<< HEAD
-              <v-btn
-              class="ma-2"
-              outlined
-              @click="ExOrFold()"
-              >
-                {{ this.validTitem ? "Load More" : "Fold" }}
-=======
               <v-btn class="ma-2" outlined @click="ExOrFold()">
-                {{ buttonText }}
->>>>>>> bad18e932bcaf5c787235b91564e6dad428eb597
+                {{ validTitem ? "Load More" : "Fold" }}
               </v-btn>
             </v-flex>
           </v-layout>
@@ -405,28 +396,6 @@ export default {
       y: 0
     },
     timelineItemCounter: 3,
-    // dummy data
-    // TODO: collect these data through API call
-    // timeLineItems: [
-    //   {
-    //     date: '06/03/2019',
-    //     name: 'Spring Quarter Demo Day',
-    //     info:
-    //       "Triple C welcomes everyone to come to our Demo Day on June 3rd. Here, we'll share you with our interesting stories about projects. Here, we'll let you to join projects that interest you. And the most important thing: we'll provide you with DRINKS AND SNACKS. Valued Guest: Professor Thomas Powell, Professor Sicun Gao, Professor Yingjun Cao, Alumni from ServiceNow and AppFolio."
-    //   },
-    //   {
-    //     date: '05/04/2019',
-    //     name: 'Spring Quarter Team Bonding',
-    //     info:
-    //       "Triple C welcomes everyone to come to our Demo Day on June 3rd. Here, we'll share you with our interesting stories about projects. Here, we'll let you to join projects that interest you. And the most important thing: we'll provide you with DRINKS AND SNACKS. Valued Guest: Professor Thomas Powell, Professor Sicun Gao, Professor Yingjun Cao, Alumni from ServiceNow and AppFolio."
-    //   },
-    //   {
-    //     date: '04/09/2019',
-    //     name: 'Spring Quarter 2019 GBM',
-    //     info:
-    //       "On April 4th, Triple C (Chinese Computer Community) had a 'Spring 2019 General Body Meeting' with our incoming staff and our new project contributors. We had 50 students coming for joining our group. By here, we introduced our origination's culture and goals, recruiting talented new staff, showed two of our Website Projects proudly completed by the end of last quarter. We all had a delightful night and finally found where our dream is at together. For further inquiries or if you intend to join our organization, feel free to contact with us via Triple C official email: ucsdtriplec@gmail.com."
-    //   }
-    // ],
     carouselItems: [
       { src: '/activity1.jpeg' },
       { src: '/activity2.jpeg' },
@@ -493,12 +462,9 @@ export default {
       }
       this.fetchCheck()
     },
-<<<<<<< HEAD
-=======
     importAll (r) {
       r.keys().forEach(key => (this.images.push({ src: '/gallery/' + key.substring(1) })))
     },
->>>>>>> bad18e932bcaf5c787235b91564e6dad428eb597
     onResize () {
       this.windowSize = { x: window.innerWidth, y: window.innerHeight }
     },
