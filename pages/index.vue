@@ -334,7 +334,7 @@
               outlined
               @click="ExOrFold()"
               >
-                {{ buttonText }}
+                {{ this.validTitem ? "Load More" : "Fold" }}
               </v-btn>
             </v-flex>
           </v-layout>
@@ -434,8 +434,7 @@ export default {
       v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
     ],
     validEmail: true,
-    expand: false,
-    buttonText: 'Load More'
+    validTitem: true
   }),
   watch: {
     loader () {
@@ -460,21 +459,25 @@ export default {
     }).go()
   },
   methods: {
-    async ExOrFold () {
-      if (!this.expand) {
-        const data = await this.$content('timeline').sortBy('date').skip(this.timelineItemCounter).limit(3).fetch()
-        this.timeLineItems = this.timeLineItems.concat(data)
-        this.timelineItemCounter += data.length
-        this.expand = true
-        this.buttonText = 'Fold'
+    async fetchCheck () {
+      const data = await this.$content('timeline').sortBy('index', 'desc').skip(this.timelineItemCounter).limit(3).fetch()
+      if (data.length === 0) {
+        this.validTitem = false
       } else {
-        this.timeLineItems = this.timeLineItems.slice(0, this.timeLineItems.length - 3)
-        this.timelineItemCounter -= 3
-        this.expand = false
-        this.buttonText = 'Load More'
+        this.validTitem = true
       }
     },
-
+    async ExOrFold () {
+      const data = await this.$content('timeline').sortBy('index', 'desc').skip(this.timelineItemCounter).limit(3).fetch()
+      if (data.length !== 0) {
+        this.timeLineItems = this.timeLineItems.concat(data)
+        this.timelineItemCounter += data.length
+      } else {
+        this.timeLineItems = this.timeLineItems.slice(0, 3)
+        this.timelineItemCounter = 3
+      }
+      this.fetchCheck()
+    },
     onResize () {
       this.windowSize = { x: window.innerWidth, y: window.innerHeight }
     },
