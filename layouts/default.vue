@@ -194,23 +194,23 @@
           <v-card-title>
             Contact us
           </v-card-title>
-          <v-card-subtitle class="text--white">
+          <v-card-subtitle class="white--text">
             Let's make progress together
           </v-card-subtitle>
         </v-img>
         <v-card-text class="pb-0">
           <div class="d-flex flex-column">
-            <v-btn class="mb-2 white--text" outlined>
+            <v-btn class="mb-2" outlined>
               <v-icon left>
                 mdi-account-group
               </v-icon> Join the team
             </v-btn>
-            <v-btn class="mb-2 white--text" outlined>
+            <v-btn class="mb-2" outlined>
               <v-icon left>
                 mdi-file-document-edit
               </v-icon> Submit a proposal
             </v-btn>
-            <v-btn class="mb-6 white--text" outlined>
+            <v-btn class="mb-6" outlined>
               <v-icon left>
                 mdi-handshake
               </v-icon> Support us
