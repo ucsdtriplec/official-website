@@ -303,35 +303,40 @@
             </v-flex>
             <v-flex xs12>
               <v-timeline :dense="$vuetify.breakpoint.mobile">
-                <v-timeline-item
-                  v-for="(item, index) in timeLineItems"
-                  :key="index"
-                  class="pb-0"
-                >
-                  <span slot="opposite">{{ item.date }}</span>
-                  <v-card class="elevation-0 transparent">
-                    <v-card-title class="headline">
-                      <span
-                        style="word-break: break-word"
-                        :style="
-                          !$vuetify.breakpoint.mobile &&
-                            index % 2 == 1 &&
-                            !item.body.children.length
-                            ? 'width: 100%; text-align: right;'
-                            : ''
-                        "
-                      >
-                        {{ item.title }}
-                      </span>
-                    </v-card-title>
-                    <v-card-text
-                      v-if="item.body.children.length"
-                      class="body-1 pb-0"
+                <v-slide-y-transition group>
+                  <template
+                    v-for="(item, index) in timeLineItems"
+                  >
+                    <v-timeline-item
+                      :key="index"
+                      class="pb-0"
                     >
-                      <nuxt-content :document="item" />
-                    </v-card-text>
-                  </v-card>
-                </v-timeline-item>
+                      <span slot="opposite">{{ item.date }}</span>
+                      <v-card class="elevation-0 transparent">
+                        <v-card-title class="headline">
+                          <span
+                            style="word-break: break-word"
+                            :style="
+                              !$vuetify.breakpoint.mobile &&
+                                index % 2 == 1 &&
+                                !item.body.children.length
+                                ? 'width: 100%; text-align: right;'
+                                : ''
+                            "
+                          >
+                            {{ item.title }}
+                          </span>
+                        </v-card-title>
+                        <v-card-text
+                          v-if="item.body.children.length"
+                          class="body-1 pb-0"
+                        >
+                          <nuxt-content :document="item" />
+                        </v-card-text>
+                      </v-card>
+                    </v-timeline-item>
+                  </template>
+                </v-slide-y-transition>
               </v-timeline>
             </v-flex>
             <v-flex xs12 class="text-center">
@@ -390,24 +395,9 @@ export default {
   },
   data: () => ({
     timeLineItems: [],
+    timelineLoading: false,
     images: [],
-    windowSize: {
-      x: 0,
-      y: 0
-    },
     timelineItemCounter: 3,
-    carouselItems: [
-      { src: '/activity1.jpeg' },
-      { src: '/activity2.jpeg' },
-      { src: '/activity3.jpeg' },
-      { src: '/activity4.jpeg' },
-      { src: '/activity5.jpeg' },
-      { src: '/activity6.jpeg' },
-      { src: '/activity7.jpeg' },
-      { src: '/activity8.jpeg' },
-      { src: '/activity9.jpeg' }
-    ],
-    loading: false,
     loader: null,
     subscriptionOverlay: false,
     subscriptionEmail: '',
@@ -437,7 +427,8 @@ export default {
     }
     new TypeIt('#title', {
       speed: 60,
-      strings: 'Innovate and Collaborate @ Triple C'
+      strings: 'Innovate and Collaborate @ Triple C',
+      afterComplete: (step, instance) => instance.destroy()
     }).go()
     // import all images in the gallery folder
     this.importAll(require.context('@/static/gallery', true, /\.jpeg$/))
@@ -445,11 +436,7 @@ export default {
   methods: {
     async fetchCheck () {
       const data = await this.$content('timeline').sortBy('index', 'desc').skip(this.timelineItemCounter).limit(3).fetch()
-      if (data.length === 0) {
-        this.validTitem = false
-      } else {
-        this.validTitem = true
-      }
+      this.validTitem = data.length !== 0
     },
     async ExOrFold () {
       const data = await this.$content('timeline').sortBy('index', 'desc').skip(this.timelineItemCounter).limit(3).fetch()
@@ -460,13 +447,10 @@ export default {
         this.timeLineItems = this.timeLineItems.slice(0, 3)
         this.timelineItemCounter = 3
       }
-      this.fetchCheck()
+      await this.fetchCheck()
     },
     importAll (r) {
       r.keys().forEach(key => (this.images.push({ src: '/gallery/' + key.substring(1) })))
-    },
-    onResize () {
-      this.windowSize = { x: window.innerWidth, y: window.innerHeight }
     },
     validate () {
       this.$refs.form.validate()
