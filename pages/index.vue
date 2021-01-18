@@ -231,7 +231,7 @@
                     <v-card class="elevation-0 transparent">
                       <v-card-title
                         primary-title
-                        class="layout justify-center featured_gold"
+                        class="layout featured_gold px-0"
                         style="font-weight: 700"
                       >
                         <div
@@ -431,7 +431,7 @@ export default {
       afterComplete: (step, instance) => instance.destroy()
     }).go()
     // import all images in the gallery folder
-    this.importAll(require.context('@/static/gallery', true, /\.jpeg$/))
+    this.importAll(require.context('@/static/gallery/', true, /\.jpeg$/))
   },
   methods: {
     async fetchCheck () {
@@ -450,7 +450,7 @@ export default {
       await this.fetchCheck()
     },
     importAll (r) {
-      r.keys().forEach(key => (this.images.push({ src: '/gallery' + key.substring(1) })))
+      r.keys().forEach(key => (this.images.push({ src: '/gallery/' + key.substring(1) })))
     },
     validate () {
       this.$refs.form.validate()

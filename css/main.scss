@@ -248,6 +248,8 @@ mark {
 }
 
 .theme--dark .featured_gold {
+  display: block;
+  text-align: center;
   background: linear-gradient(to right, #FFEB3B, #FF9800);
   -webkit-background-clip: text;
   background-clip: text;
@@ -255,6 +257,8 @@ mark {
 }
 
 .theme--light .featured_gold {
+  display: block;
+  text-align: center;
   background: linear-gradient(to right, #FBC02D, #F57C00);
   -webkit-background-clip: text;
   background-clip: text;
