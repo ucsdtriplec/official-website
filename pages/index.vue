@@ -431,7 +431,7 @@ export default {
       afterComplete: (step, instance) => instance.destroy()
     }).go()
     // import all images in the gallery folder
-    this.importAll(require.context('@/static/gallery', true, /\.webp$/))
+    this.importAll(require.context('@/static/gallery/', true, /\.webp$/))
   },
   methods: {
     async fetchCheck () {
@@ -450,7 +450,7 @@ export default {
       await this.fetchCheck()
     },
     importAll (r) {
-      r.keys().forEach(key => (this.images.push({ src: '/gallery/' + key.substring(1) })))
+      r.keys().forEach(key => (this.images.push({ src: '/gallery' + key.substring(1) })))
     },
     validate () {
       this.$refs.form.validate()
