@@ -243,7 +243,7 @@
                       </v-card-title>
                       <v-img
                         height="250"
-                        src="/kaggle_featured.jpg"
+                        src="/kaggle_featured.webp"
                         class="mx-0 mx-md-2 rounded-lg"
                       />
                       <v-card-text class="body-1 px-0 px-md-2">
@@ -268,7 +268,7 @@
                       </v-card-title>
                       <v-img
                         height="250"
-                        src="/xplore_featured.jpg"
+                        src="/xplore_featured.webp"
                         class="mx-0 mx-md-2 rounded-lg"
                       />
                       <v-card-text class="body-1 px-0 px-md-2">
@@ -431,7 +431,7 @@ export default {
       afterComplete: (step, instance) => instance.destroy()
     }).go()
     // import all images in the gallery folder
-    this.importAll(require.context('@/static/gallery/', true, /\.webp$/))
+    this.importAll(require.context('@/static/gallery', true, /\.webp$/))
   },
   methods: {
     async fetchCheck () {
