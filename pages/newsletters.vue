@@ -9,7 +9,7 @@
       Newsletters
     </h1>
     <div class="grey--text subheading mx-2">
-      *PLACEHOLDER*
+      "We do have awesome writers in this coding community."
     </div>
     <v-divider class="ma-2 mb-8" />
     <div class="px-2">
