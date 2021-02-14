@@ -135,7 +135,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <v-container fluid>
+      <v-container fluid class="pa-0 pb-1">
         <nuxt />
       </v-container>
     </v-main>
@@ -200,17 +200,17 @@
         </v-img>
         <v-card-text class="pb-0">
           <div class="d-flex flex-column">
-            <v-btn class="mb-2" outlined>
+            <v-btn class="mb-2" outlined href="mailto:ucsdtriplec@gmail.com">
               <v-icon left>
                 mdi-account-group
               </v-icon> Join the team
             </v-btn>
-            <v-btn class="mb-2" outlined>
+            <v-btn class="mb-2" outlined href="mailto:ucsdtriplec@gmail.com">
               <v-icon left>
                 mdi-file-document-edit
               </v-icon> Submit a proposal
             </v-btn>
-            <v-btn class="mb-6" outlined>
+            <v-btn class="mb-6" outlined href="mailto:ucsdtriplec@gmail.com">
               <v-icon left>
                 mdi-handshake
               </v-icon> Support us
@@ -271,8 +271,7 @@ export default {
         { icon: 'mdi-facebook', link: 'https://www.facebook.com/ucsdtriplec' },
         { icon: 'mdi-github', link: 'https://github.com/ucsdtriplec' },
         { icon: 'mdi-linkedin', link: 'https://www.linkedin.com/company/ucsd-chinese-computer-community/' },
-        // TODO: Not completed
-        { icon: 'mdi-wechat', link: '' }
+        { icon: 'mdi-wechat', link: 'http://weixin.qq.com/r/OB26olfEnArjrRPB90gq' }
       ],
       contactNav: false
     }
