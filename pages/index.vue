@@ -50,18 +50,18 @@
       <v-parallax
         id="homepage-pic"
         dark
-        src="/homepage_cover_pic.jpg"
+        src="/homepage_cover_pic.webp"
         :height="840"
         jumbotron
       >
         <v-row align="center" justify="center">
-          <v-col class="text-center" md="4" offset-md="0">
+          <v-col class="text-center" lg="4" offset-md="0">
             <Logo class="float-center" />
           </v-col>
-          <v-col class="text-center" md="6" offset="0">
+          <v-col class="text-center" lg="6" offset="0">
             <h1
               id="title"
-              class="text-h3 mb-4 text-left font-weight-bold"
+              class="text-h3 text-left font-weight-bold pb-2"
               style="word-break: break-word"
             />
             <h4 class="text-h6 text-left fadeIn">
@@ -221,7 +221,7 @@
                 <h2 id="featured_projects" class="text-h4 font-weight-medium">
                   Featured Projects
                 </h2>
-                <span class="subtitle-1"> *PLACEHOLDER </span>
+                <span class="subtitle-1"> "Behold, their names are in gold!" </span>
               </div>
             </v-flex>
             <v-flex xs12>
@@ -243,7 +243,7 @@
                       </v-card-title>
                       <v-img
                         height="250"
-                        src="https://picsum.photos/250/300"
+                        src="/kaggle_featured.webp"
                         class="mx-0 mx-md-2 rounded-lg"
                       />
                       <v-card-text class="body-1 px-0 px-md-2">
@@ -268,7 +268,7 @@
                       </v-card-title>
                       <v-img
                         height="250"
-                        src="https://picsum.photos/250/600"
+                        src="/xplore_featured.webp"
                         class="mx-0 mx-md-2 rounded-lg"
                       />
                       <v-card-text class="body-1 px-0 px-md-2">
@@ -427,11 +427,11 @@ export default {
     }
     new TypeIt('#title', {
       speed: 60,
-      strings: 'Innovate and Collaborate @ Triple C',
+      strings: 'Innovate and Collaborate @ TripleC',
       afterComplete: (step, instance) => instance.destroy()
     }).go()
     // import all images in the gallery folder
-    this.importAll(require.context('@/static/gallery/', true, /\.jpeg$/))
+    this.importAll(require.context('@/static/gallery/', true, /\.webp$/))
   },
   methods: {
     async fetchCheck () {
@@ -450,7 +450,7 @@ export default {
       await this.fetchCheck()
     },
     importAll (r) {
-      r.keys().forEach(key => (this.images.push({ src: '/gallery/' + key.substring(1) })))
+      r.keys().forEach(key => (this.images.push({ src: '/gallery' + key.substring(1) })))
     },
     validate () {
       this.$refs.form.validate()
