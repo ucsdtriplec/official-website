@@ -2,23 +2,15 @@
 title: 'Referral Project'
 description: A platform to facilitate job referring process for both job-seekers and referrals  
 team:
-- Shiyun Zhan
-- Dekun Ma
-- Zifan Huang
-- Ziheng Luo
-- Mingyu Li
-- Yunting Yang
-- Yuyin Li
-- Binyuan Yan
----
-<!-- - Shiyun Zhan (PM)
+- Shiyun Zhan （PM）
 - Dekun Ma (Tech Lead)
 - Zifan Huang (Frontend)
 - Ziheng Luo (Frontend)
 - Mingyu Li (Backend)
 - Yunting Yang (PD)
 - Yuyin Li (BD)
-- Binyuan Yan (BD) -->
+- Binyuan Yan (BD)
+---
 **Project still in the initial stage, all the details including project name are subject to changes** 
 ## Functions  
 - For job seekers
