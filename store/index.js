@@ -27,7 +27,11 @@ export const getters = {
         )
       }
     }
-    return result;
+    const sorted = state.departmentNames.reduce((obj, key) => {
+      obj[key] = result[key]
+      return obj
+    }, {})
+    return sorted;
   },
   getMembersByDepartment: state => department => {
     let result = []
@@ -85,6 +89,10 @@ export const mutations = {
     state.departmentList = data
   },
 
+  updateDepartmentNames(state, data) {
+    state.departmentNames = data
+  },
+
   toggleSnackBar(state) {
     state.snackBar.isOpen = !state.snackBar.isOpen
   },
@@ -130,6 +138,8 @@ export const actions = {
     commit('setNewsletters', newsletterData)
     const membersData = await this.$axios.$get(`${config.API_PREFIX}/members`)
     commit('setMemberList', membersData)
+    const departmentNames = await this.$axios.$get(`${config.API_PREFIX}/departments`)
+    commit('updateDepartmentNames', departmentNames)
   },
 
   async SET_MEMBERLIST({ commit }) {
