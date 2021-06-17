@@ -18,13 +18,22 @@ export const state = () => ({
 })
 
 export const getters = {
-  getMembersByDepartment(state) {
+  getAllMembersInAllDepartments(state) {
     let result = {}
     for (let member of state.memberList) {
       for (let department of member.departments) {
         (result[department] = result[department] || []).push(
           member
         )
+      }
+    }
+    return result;
+  },
+  getMembersByDepartment: state => department => {
+    let result = []
+    for (let member of state.memberList) {
+      for (let d of member.departments) {
+        if (d === department) result.push(member)
       }
     }
     return result;
@@ -72,6 +81,10 @@ export const mutations = {
     state.projectList = data
   },
 
+  updateDepartmentList(state, data) {
+    state.departmentList = data
+  },
+
   toggleSnackBar(state) {
     state.snackBar.isOpen = !state.snackBar.isOpen
   },
@@ -105,7 +118,14 @@ export const actions = {
       .only(['title', 'path', 'description'])
       .sortBy('date', 'asc')
       .fetch()
+
+    const departmentData = await $content('departments')
+      .only(['title', 'path', 'description'])
+      .sortBy('date', 'asc')
+      .fetch()
+
     commit('updateProjectList', projectData)
+    commit('updateDepartmentList', departmentData)
     const newsletterData = await mailchimp.campaigns.list({ count: 100 })
     commit('setNewsletters', newsletterData)
     const membersData = await this.$axios.$get(`${config.API_PREFIX}/members`)

@@ -46,6 +46,34 @@
             </v-list-item>
           </v-list>
         </v-menu>
+        <v-menu v-ripple="false" offset-y nudge-bottom="10" transition="slide-y-transition">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              text
+              class="hidden-sm-and-down"
+              v-bind="attrs"
+              v-on="on"
+            >
+              Departments
+              <v-icon right>
+                mdi-menu-down
+              </v-icon>
+            </v-btn>
+          </template>
+
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in $store.state.departmentList"
+              :key="index"
+              nuxt
+              :to="item.path"
+            >
+              <v-list-item-title>
+                {{ item.title }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </v-toolbar-items>
       <v-divider
         class="mr-4"
@@ -115,6 +143,7 @@
             </v-list-item-content>
           </v-list-item>
 
+          <v-divider />
           <v-subheader>Projects</v-subheader>
 
           <v-list-item
@@ -129,6 +158,20 @@
             <v-list-item-content>
               <v-list-item-title> Members </v-list-item-title>
             </v-list-item-content>
+          </v-list-item>
+
+          <v-divider />
+          <v-subheader>Departments</v-subheader>
+
+          <v-list-item
+            v-for="(item, index) in $store.state.departmentList"
+            :key="index"
+            nuxt
+            :to="item.path"
+          >
+            <v-list-item-title>
+              {{ item.title }}
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-list>

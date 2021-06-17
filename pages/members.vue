@@ -13,7 +13,7 @@
       <!-- from "Hamilton" -->
     </div>
     <v-divider class="ma-2 mb-8" />
-    <div v-for="(departmentMembers, departmentName) in $store.getters.getMembersByDepartment" :key="departmentName">
+    <div v-for="(departmentMembers, departmentName) in $store.getters.getAllMembersInAllDepartments" :key="departmentName">
       <h6 class="text-h6 mx-2">
         {{ departmentName }}
       </h6>

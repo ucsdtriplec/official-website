@@ -421,7 +421,8 @@ export default {
   mounted () {
     // Set height of the parallex to be 100% view height
     // It will overflow a little because of the navbar, but that's fine
-    document.getElementById('homepage-pic').style.height = '100vh'
+    document.getElementById('homepage-pic').style.height = '95vh'
+    // document.getElementById('homepage-pic').style.minHeight = '600px'
 
     this.subscriptionOverlay = true // debug
     // set subscriptionOverlay flag if the page is openned for on first time
