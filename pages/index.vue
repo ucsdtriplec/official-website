@@ -221,7 +221,7 @@
                 <h2 id="featured_projects" class="text-h4 font-weight-medium">
                   Featured Projects
                 </h2>
-                <span class="subtitle-1"> *PLACEHOLDER </span>
+                <span class="subtitle-1"> "Behold, their names are in gold!" </span>
               </div>
             </v-flex>
             <v-flex xs12>
