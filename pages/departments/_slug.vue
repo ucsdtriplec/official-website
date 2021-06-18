@@ -1,26 +1,17 @@
 <template>
-  <div class="markdown-body">
-    <v-img
-      height="300"
-      src="/team-cover.jpg"
-      class="ma-2 rounded"
-    />
-    <h1 class="display-1 ma-2">
-      Meet the team
-    </h1>
-    <div class="grey--text subheading mx-2">
-      "They are all in the room where it happens."
-      <!-- from "Hamilton" -->
-    </div>
-    <v-divider class="ma-2 mb-8" />
-    <div v-for="(departmentMembers, departmentName) in $store.getters.getAllMembersInAllDepartments" :key="departmentName">
-      <h6 class="text-h6 mx-2">
-        {{ departmentName }}
-      </h6>
-      <v-container class="px-0">
+  <div class="markdown-container">
+    <v-card class="markdown-body" max-width="936">
+      <h1 class="display-1 ma-2">
+        {{ article.title }}
+      </h1>
+      <div class="grey--text subheading mx-2">
+        {{ article.description }}
+      </div>
+
+      <v-container>
         <v-row no-gutters>
           <v-col
-            v-for="(member, idx) in departmentMembers"
+            v-for="(member, idx) in $store.getters.getMembersByDepartment('BD')"
             :key="idx"
             cols="12"
             xs="12"
@@ -32,6 +23,7 @@
               justify="center"
               class="ma-2"
             >
+              <!-- {{ member }} -->
               <MemberCard
                 :name="member.name"
                 :position="member.position"
@@ -45,21 +37,33 @@
           </v-col>
         </v-row>
       </v-container>
-    </div>
+
+      <v-divider class="mb-4 mt-2 mx-2" />
+      <article class="mx-2">
+        <nuxt-content :document="article" />
+      </article>
+    </v-card>
   </div>
 </template>
 
 <script>
+import MemberCard from '~/components/MemberCard.vue'
+
 export default {
+  components: {
+    MemberCard
+  },
   // async fetch ({ store, params }) {
   //   await store.dispatch('SET_MEMBERLIST')
   // },
-  beforeDestroy () {
-    this.$store.commit('closeSnackBar')
+  async asyncData ({ $content, params, store }) {
+    const article = await $content('departments', params.slug).fetch()
+    return { article }
+  },
+  head () {
+    return {
+      title: this.article.title
+    }
   }
 }
 </script>
-
-<style>
-
-</style>

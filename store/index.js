@@ -18,54 +18,100 @@ export const state = () => ({
 })
 
 export const getters = {
-  getMembersByDepartment (state) {
-    return state.memberList.reduce((result, currentValue) => {
-      // If an array already present for key, push it to the array. Else create an array and push the object
-      (result[currentValue.department] = result[currentValue.department] || []).push(
-        currentValue
-      )
-      return result
+  getAllMembersInAllDepartments(state) {
+    let result = {}
+    for (let member of state.memberList) {
+      for (let department of member.departments) {
+        (result[department] = result[department] || []).push(
+          member
+        )
+      }
+    }
+    const sorted = state.departmentNames.reduce((obj, key) => {
+      obj[key] = result[key]
+      return obj
     }, {})
+    return sorted;
   },
-  getMemberByName: state => name => state.memberList.filter(member => member.name === name)[0] ??
-  {
-    avatar: null,
-    department: '',
-    email: null,
-    github: null,
-    id: null,
-    linkedIn: '',
-    motto: '',
-    name,
-    position: '',
-    project: '',
-    uuid: ''
+  getMembersByDepartment: state => department => {
+    let result = []
+    for (let member of state.memberList) {
+      for (let d of member.departments) {
+        if (d === department) result.push(member)
+      }
+    }
+    return result;
+  },
+  getMemberByName: state => name => {
+    const nullMemberResult = {
+      avatar: null,
+      department: '',
+      email: null,
+      github: null,
+      id: null,
+      linkedIn: '',
+      motto: '',
+      name,
+      position: '',
+      project: '',
+      uuid: ''
+    }
+
+    const front_parentheses_idx = name.indexOf("(")
+    const back_parentheses_idx = name.indexOf(")")
+
+    // handle chinese parentheses
+    let begin = front_parentheses_idx < 0 ? name.indexOf("（") : front_parentheses_idx
+    let end = back_parentheses_idx < 0 ? name.indexOf("）") : back_parentheses_idx
+
+    let position = null
+
+    // contains "(position)" in "name"
+    if (begin > 0 && end > 0) {
+      position = name.substring(begin + 1, end).trim()
+      name = name.substring(0, begin).trim()
+    }
+
+    let result = state.memberList.filter(member => member.name === name)[0] ?? nullMemberResult
+
+    if (position) result.position = position
+    if (name) result.name = name
+    return result
   }
+
 }
 export const mutations = {
-  updateProjectList (state, data) {
+  updateProjectList(state, data) {
     state.projectList = data
   },
 
-  toggleSnackBar (state) {
+  updateDepartmentList(state, data) {
+    state.departmentList = data
+  },
+
+  updateDepartmentNames(state, data) {
+    state.departmentNames = data
+  },
+
+  toggleSnackBar(state) {
     state.snackBar.isOpen = !state.snackBar.isOpen
   },
 
-  closeSnackBar (state) {
+  closeSnackBar(state) {
     state.snackBar.isOpen = false
   },
 
-  showSnackBar (state, { text, color }) {
+  showSnackBar(state, { text, color }) {
     state.snackBar.text = text
     state.snackBar.color = color
     state.snackBar.isOpen = true
   },
 
-  setMemberList (state, data) {
+  setMemberList(state, data) {
     state.memberList = data.members
   },
 
-  setNewsletters (state, data) {
+  setNewsletters(state, data) {
     data = data.campaigns.filter(letter => letter.settings.folder_id === config.MAILCHIMP_FOLDER_ID)
     data.sort((a, b) => new Date(b.send_time) - new Date(a.send_time))
     state.newsletters = data
@@ -75,24 +121,35 @@ export const mutations = {
 export const actions = {
   // automatically fetches the project markdown list when the server inits, to be used for navigation
   // putting the code here because layout pages do not allow asyncDatas
-  async nuxtServerInit ({ commit }, { $content }) {
-    const timelineData = await $content('projects')
+  async nuxtServerInit({ commit }, { $content }) {
+    const projectData = await $content('projects')
       .only(['title', 'path', 'description'])
       .sortBy('date', 'asc')
       .fetch()
-    commit('updateProjectList', timelineData)
+
+    const departmentData = await $content('departments')
+      .only(['title', 'path', 'description'])
+      .sortBy('date', 'asc')
+      .fetch()
+
+    commit('updateProjectList', projectData)
+    commit('updateDepartmentList', departmentData)
     const newsletterData = await mailchimp.campaigns.list({ count: 100 })
     commit('setNewsletters', newsletterData)
-    const memberListData = await this.$axios.$post(`${config.API_PREFIX}/members/all`)
-    commit('setMemberList', memberListData)
+    const membersData = await this.$axios.$get(`${config.API_PREFIX}/members`)
+    commit('setMemberList', membersData)
+    const departmentNames = await this.$axios.$get(`${config.API_PREFIX}/departments`)
+    commit('updateDepartmentNames', departmentNames)
   },
 
-  async SET_MEMBERLIST ({ commit }) {
-    await this.$axios.$post(`${config.API_PREFIX}/members/all`)
+  async SET_MEMBERLIST({ commit }) {
+    await this.$axios.$get(`${config.API_PREFIX}/members`)
       .then((res) => {
-        commit('setMemberList', res)
+        console.log(res.members)
+        commit('setMemberList', res.members)
       })
       .catch((error) => {
+        console.log('errored')
         commit('showSnackBar', { text: error.message, color: 'error' })
       })
   }

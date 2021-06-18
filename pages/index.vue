@@ -89,7 +89,7 @@
             </div>
           </v-flex>
           <v-flex xs12>
-            <v-container grid-list-xl>
+            <v-container grid-list-xl class="px-0">
               <v-layout row wrap align-start>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
@@ -419,6 +419,11 @@ export default {
     }
   },
   mounted () {
+    // Set height of the parallex to be 100% view height
+    // It will overflow a little because of the navbar, but that's fine
+    document.getElementById('homepage-pic').style.height = '95vh'
+    // document.getElementById('homepage-pic').style.minHeight = '600px'
+
     this.subscriptionOverlay = true // debug
     // set subscriptionOverlay flag if the page is openned for on first time
     if (!window.localStorage.getItem('visited')) {

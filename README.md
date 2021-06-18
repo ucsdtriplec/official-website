@@ -33,6 +33,7 @@
   - [Manage Member Information](#manage-member-information)
   - [Update Timeline](#update-timeline)
   - [Update Project Readmes](#update-project-readmes)
+  - [Update Department Readmes](#update-department-readmes)
   - [Sync Newletters](#sync-newletters)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -137,14 +138,31 @@ Edit markdown files in `/content/projects`. The markdown files should follow the
 ---
 title: 'Title of the project'
 
+// note: the parentheses and the position inside it are optional
 team:
-// should exactly match the names in management system
+  - Steve Jobs (PM)
+  - Jimmy Keesee (Frontend)
+  - Linus Torvalds (Backend)
+  - Elon Musk
+
+system
   - Aa AaAa
   - Bb BbBb
   - Cc CcCc
 ---
 
 # Introduction
+...
+```
+
+### Update Department Readmes
+Edit markdown files in `/content/departments`. The markdown files should follow the template below.
+```markdown
+---
+title: 'Title of the department'
+description: 'Short description or Chinese name of the department'
+---
+Anything else to introduce the department
 ...
 ```
 
