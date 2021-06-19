@@ -11,7 +11,7 @@
       <v-container>
         <v-row no-gutters>
           <v-col
-            v-for="(member, idx) in $store.getters.getMembersByDepartment('BD')"
+            v-for="(member, idx) in $store.getters.getMembersByDepartment(article.title)"
             :key="idx"
             cols="12"
             xs="12"

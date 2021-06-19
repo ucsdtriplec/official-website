@@ -14,12 +14,20 @@ export const state = () => ({
     text: '',
     color: 'success'
   },
+  departmentNames: [],
+  departmentList: [],
   newsletters: []
 })
 
 export const getters = {
   getAllMembersInAllDepartments(state) {
     let result = {}
+
+    // initialize "result" so that the keys are in the order of the departments
+    for (let d of state.departmentNames) {
+      result[d] = []
+    }
+
     for (let member of state.memberList) {
       for (let department of member.departments) {
         (result[department] = result[department] || []).push(
@@ -27,17 +35,14 @@ export const getters = {
         )
       }
     }
-    const sorted = state.departmentNames.reduce((obj, key) => {
-      obj[key] = result[key]
-      return obj
-    }, {})
-    return sorted;
+
+    return result;
   },
   getMembersByDepartment: state => department => {
     let result = []
     for (let member of state.memberList) {
       for (let d of member.departments) {
-        if (d === department) result.push(member)
+        if (d.toUpperCase() === department.toUpperCase()) result.push(member)
       }
     }
     return result;
@@ -145,7 +150,6 @@ export const actions = {
   async SET_MEMBERLIST({ commit }) {
     await this.$axios.$get(`${config.API_PREFIX}/members`)
       .then((res) => {
-        console.log(res.members)
         commit('setMemberList', res.members)
       })
       .catch((error) => {
