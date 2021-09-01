@@ -10,11 +10,12 @@
   <p align="center">
     UCSD Triple C official website, now rewritten w/ vuejs, nuxtjs, and vuetify, coming with tons of new features!
     <br />
-    <a href="https://github.com/github_username/repo">View Demo</a>
+    <img src="https://i.loli.net/2021/09/01/vJeOHFhNr6SUdDG.png" >
+    <a href="https://www.ucsdtriplec.org">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo/issues">Report Bug</a>
+    <a href="https://github.com/ucsdtriplec/official-website/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo/issues">Request Feature</a>
+    <a href="https://github.com/ucsdtriplec/official-website/issues">Request Feature</a>
   </p>
 </p>
 
@@ -23,7 +24,6 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [About The Project](#about-the-project)
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
@@ -37,8 +37,8 @@
   - [Sync Newletters](#sync-newletters)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
+- [License](#license)
 - [Contact](#contact)
-
 
 
 <!-- ABOUT THE PROJECT -->
@@ -61,8 +61,9 @@ The next generation of the UCSD Triple C official website. It is now under inten
     * Typeit
 * Back-end
   * Springboot
-    * Mysql
+    * Spring Data JPA
     * Spring Security
+  * MySQL
   * AWS
     * Lambda
     * Cloud Front
@@ -76,7 +77,7 @@ The next generation of the UCSD Triple C official website. It is now under inten
 ### Prerequisites
 
 * yarn
-* ucsdtriplec official web management system [(installation guide)](https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-management-sys)
+* ucsdtriplec official web management system [[installation guide (permission required)]](https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-management-sys)
 ```sh
 # macOS
 $ brew install yarn
@@ -90,10 +91,17 @@ $ curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/
 
 ### Installation
 
-1. Clone the repo
+1. Clone the repo  
+
+If you are in our GitHub repo: 
+```sh
+$ git clone https://github.com/ucsdtriplec/official-website.git
+```  
+If you are in our GitLab repo:
 ```sh
 $ git clone https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt.git
 ```
+
 2. Install NPM packages
 ```bash
 # install dependencies
@@ -119,7 +127,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ## Maintainence
 ### Manage Member Information
-Please refer to ucsdtriplec official web management system documentation. Once you finished, regenerate the front end to update the contents.
+Please refer to [ucsdtriplec official web management system documentation](https://docs.google.com/document/d/16MsIwQDDGIGjp0UfYkK7MJQlStJ2sYaq7RQNFUpup9E/edit#heading=h.mms6qz9te1mn) (permission required). Once you finished, regenerate the front end to update the contents.
 
 ### Update Timeline
 Edit markdown files in `/content/timeline`. The markdown files should follow the template below.
@@ -166,7 +174,7 @@ In mailchimp, drop the newsletters to be shown to folder "newsletters". Regenera
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/ucsdtriplec/official-website/issues) for a list of proposed features (and known issues).
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -178,9 +186,17 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+<!-- LICENSE -->
+## License
+
+This project is licensed under the **MIT license**.  
+
+This means that you can use it for any purpose, even commercially, as long as you include the original copyright and license notice.
+
 <!-- CONTACT -->
 ## Contact
 
-Xiyan Shao - x3shao AT ucsd.edu
+Xiyan Shao - x3shao AT ucsd.edu  
+Dekun Ma - William AT dekun.me
 
-Project Link: [https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt](https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt)
+GitLab Repository Link (for Triple C internal developers): [ucsdtriplec-official-web-nuxt](https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt)
