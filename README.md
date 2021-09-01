@@ -1,16 +1,15 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <!-- <a href="https://github.com/github_username/repo">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
-
   <h3 align="center">The Nuxt UCSD Triple C Official Website</h3>
+  <br/>
+
+  <img align="center" src="https://i.loli.net/2021/09/01/vJeOHFhNr6SUdDG.png" >
+  <br/>
 
   <p align="center">
     UCSD Triple C official website, now rewritten w/ vuejs, nuxtjs, and vuetify, coming with tons of new features!
     <br />
-    <img src="https://i.loli.net/2021/09/01/vJeOHFhNr6SUdDG.png" >
     <a href="https://www.ucsdtriplec.org">View Demo</a>
     ·
     <a href="https://github.com/ucsdtriplec/official-website/issues">Report Bug</a>
