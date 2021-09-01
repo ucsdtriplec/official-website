@@ -137,6 +137,7 @@ Edit markdown files in `/content/projects`. The markdown files should follow the
 ```markdown
 ---
 title: 'Title of the project'
+description: 'description of the project'
 
 // note: the parentheses and the position inside it are optional
 team:
@@ -144,14 +145,8 @@ team:
   - Jimmy Keesee (Frontend)
   - Linus Torvalds (Backend)
   - Elon Musk
-
-system
-  - Aa AaAa
-  - Bb BbBb
-  - Cc CcCc
 ---
-
-# Introduction
+Anything else about the project
 ...
 ```
 
