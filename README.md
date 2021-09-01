@@ -96,6 +96,8 @@ If you are in our GitHub repo:
 ```sh
 $ git clone https://github.com/ucsdtriplec/official-website.git
 ```  
+Also, you need to [contact](#contact) the maintainer of this repository to get the correct config file in ```config/index.js```  
+<br/>
 If you are in our GitLab repo:
 ```sh
 $ git clone https://gitlab.com/ucsd-triple-c/ucsdtriplec-official-web-nuxt.git
