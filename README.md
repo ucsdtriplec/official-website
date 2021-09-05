@@ -190,9 +190,9 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-This project is licensed under the **MIT license**.  
+This project is licensed under the **GPL-3 license**.  
 
-This means that you can use it for any purpose, even commercially, as long as you include the original copyright and license notice.
+This means that you may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
 
 <!-- CONTACT -->
 ## Contact
